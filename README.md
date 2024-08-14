@@ -34,7 +34,7 @@ We are open to collaborations. Feed backs from low-temperature plasma scientists
 
 ## Acknowledgment
 
-This work was partly funded by the Deutsche Forschungsgemeinschaft (DFG,German Research Foundation)—Project Number 496963457.
+This work was partly funded by the Deutsche Forschungsgemeinschaft (DFG,German Research Foundation)—Project Number 496963457 and the Bundesministerium für Bildung und Forschung (BMBF)—Grant Marks 16QK03A & 16QK03B. The responsibility for the content of this repository lies with the authors.
 
 ## License
 
