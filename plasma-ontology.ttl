@@ -1,4 +1,4 @@
-@prefix : <http://plasma-mds.org/ontology#> .
+@prefix : <http://plasma-mds.org/ontology/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,7 +10,7 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix plasma-mds: <http://plasma-mds.org/ontology/> .
-@base <http://plasma-mds.org/ontology#> .
+@base <http://plasma-mds.org/ontology/> .
 
 <http://plasma-mds.org/ontology> rdf:type owl:Ontology ;
                                   owl:versionIRI plasma-mds:v.0.5 ;
