@@ -1,4 +1,3 @@
-@prefix : <http://plasma-mds.org/ontology/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,870 +8,842 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix plasma-mds: <http://plasma-mds.org/ontology/> .
-@base <http://plasma-mds.org/ontology/> .
+@prefix plasma-o: <https://plasma-mds.org/ontology/plasma-o/> .
+@base <https://plasma-mds.org/ontology/plasma-o> .
 
-<http://plasma-mds.org/ontology> rdf:type owl:Ontology ;
-                                  owl:versionIRI plasma-mds:v.0.5 ;
-                                  rdfs:comment "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
-                                  rdfs:label "Plasma Ontology"@en .
+<https://plasma-mds.org/ontology/plasma-o> rdf:type owl:Ontology ;
+                                            owl:versionIRI <https://plasma-mds.org/ontology/plasma-o/0.5.1> ;
+                                            <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0001-9324-3236> ,
+                                                                               <https://orcid.org/0000-0002-2762-293X> ,
+                                                                               <https://orcid.org/0000-0002-4232-4543> ,
+                                                                               <https://orcid.org/0000-0003-4025-1712> ,
+                                                                               "Ihda Chaerony Siffa, Robert Wagner, Laura Vilardell Scholten, Markus M. Becker" ;
+                                            <http://purl.org/dc/terms/description> "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
+                                            <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> ;
+                                            <http://purl.org/dc/terms/title> "Plasma Ontology (Plasma-O)"@en ;
+                                            <http://purl.org/vocab/vann/preferredNamespacePrefix> "plasma-o" ;
+                                            rdfs:comment "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
+                                            rdfs:label "Plasma Ontology (Plasma-O)"@en ;
+                                            owl:versionInfo "0.5.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://plasma-mds.org/ontology/ApplicationFieldEmploysDevice
-plasma-mds:ApplicationFieldEmploysDevice rdf:type owl:ObjectProperty ;
-                                         owl:equivalentProperty plasma-mds:applicationFieldUsesDevice ;
-                                         owl:inverseOf plasma-mds:hasApplicationField ;
-                                         rdfs:domain plasma-mds:ApplicationField ;
-                                         rdfs:range plasma-mds:Device ;
-                                         rdfs:label "employs"@en .
-
+###  https://plasma-mds.org/ontology/plasma-o/ApplicationFieldEmploysDevice
+plasma-o:ApplicationFieldEmploysDevice rdf:type owl:ObjectProperty ;
+                                       owl:equivalentProperty plasma-o:applicationFieldUsesDevice ;
+                                       owl:inverseOf plasma-o:hasApplicationField ;
+                                       rdfs:domain plasma-o:ApplicationField ;
+                                       rdfs:range plasma-o:Device ;
+                                       rdfs:comment "[Application Field] employs [Device]"@en ;
+                                       rdfs:label "employs"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/IsDiagnosedUsingMethod
+plasma-o:IsDiagnosedUsingMethod rdf:type owl:ObjectProperty ;
+                                owl:inverseOf plasma-o:isMethodToDiagnose ;
+                                rdfs:domain plasma-o:PlasmaSource ;
+                                rdfs:range plasma-o:Method ;
+                                rdfs:comment "[Plasma Source] is diagnosed using [Method]"@en ;
+                                rdfs:label "is diagnosed using"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/applicationFieldUsesDevice
+plasma-o:applicationFieldUsesDevice rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf plasma-o:uses ;
+                                    owl:inverseOf plasma-o:deviceIsUsedInApplicationField ;
+                                    rdfs:domain plasma-o:ApplicationField ;
+                                    rdfs:range plasma-o:Device ;
+                                    rdfs:comment "[Application Field] uses [Device]"@en ;
+                                    rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/applies
+plasma-o:applies rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty plasma-o:uses ;
+                 rdfs:label "applies"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/conducts
+plasma-o:conducts rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plasma-o:isConductedBy ;
+                  rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                  rdfs:range plasma-o:ScientificExperiment ;
+                  rdfs:comment "[Agent] conducts [Scientific Experiment]"@en ;
+                  rdfs:label "conducts"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/configurationIsUsedInExperiment
+plasma-o:configurationIsUsedInExperiment rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf plasma-o:usedIn ;
+                                         owl:inverseOf plasma-o:usesDeviceConfiguration ;
+                                         rdfs:domain plasma-o:Configuration ;
+                                         rdfs:range plasma-o:ScientificExperiment ;
+                                         rdfs:comment "[Configuration] is used in [Scientific Experiment]"@en ;
+                                         rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/consistsOfExperiment
+plasma-o:consistsOfExperiment rdf:type owl:ObjectProperty ;
+                              owl:inverseOf plasma-o:isPartOfStudy ;
+                              rdfs:domain plasma-o:ScientificExperiment ;
+                              rdfs:range plasma-o:ScientificExperiment ;
+                              rdfs:comment "[Plasma Study] consists of [Scientific Experiment]"@en ;
+                              rdfs:label "consists of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/datasetIsDescribedIn
+plasma-o:datasetIsDescribedIn rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:isDescribedIn ;
+                              owl:inverseOf plasma-o:studyDescribesDataset ;
+                              rdfs:domain vivo:Dataset ;
+                              rdfs:range plasma-o:PlasmaStudy ;
+                              rdfs:comment "[Dataset] is described in [Plasma Study]"@en ;
+                              rdfs:label "is described in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/describes
+plasma-o:describes rdf:type owl:ObjectProperty ;
+                   rdfs:label "describes"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/developed
+plasma-o:developed rdf:type owl:ObjectProperty ;
+                   owl:inverseOf plasma-o:wasDevelopedBy ;
+                   rdfs:label "developed"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/developedDevice
+plasma-o:developedDevice rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf plasma-o:developed ;
+                         rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                         rdfs:range plasma-o:Device ;
+                         rdfs:comment "[Agent] developed [Device]"@en ;
+                         rdfs:label "developed"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/developedMethod
+plasma-o:developedMethod rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf plasma-o:developed ;
+                         rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                         rdfs:range plasma-o:Method ;
+                         rdfs:comment "[Agent] developed [Method]"@en ;
+                         rdfs:label "developed"@en .
+
 
-###  http://plasma-mds.org/ontology/IsDiagnosedUsingMethod
-plasma-mds:IsDiagnosedUsingMethod rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf plasma-mds:isMethodToDiagnose ;
-                                  rdfs:domain plasma-mds:PlasmaSource ;
-                                  rdfs:range plasma-mds:Method ;
-                                  rdfs:label "is diagnosed using (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/applicationFieldUsesDevice
-plasma-mds:applicationFieldUsesDevice rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf plasma-mds:uses ;
-                                      owl:inverseOf plasma-mds:deviceIsUsedInApplicationField ;
-                                      rdfs:domain plasma-mds:ApplicationField ;
-                                      rdfs:range plasma-mds:Device ;
-                                      rdfs:label "uses"@en .
-
-
-###  http://plasma-mds.org/ontology/applies
-plasma-mds:applies rdf:type owl:ObjectProperty ;
-                   owl:equivalentProperty plasma-mds:uses ;
-                   rdfs:label "applies"@en .
-
-
-###  http://plasma-mds.org/ontology/conducts
-plasma-mds:conducts rdf:type owl:ObjectProperty ;
-                    owl:inverseOf plasma-mds:isConductedBy ;
-                    rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                    rdfs:range plasma-mds:ScientificExperiment ;
-                    rdfs:label "conducts"@en .
-
-
-###  http://plasma-mds.org/ontology/configurationIsUsedInExperiment
-plasma-mds:configurationIsUsedInExperiment rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf plasma-mds:usedIn ;
-                                           owl:inverseOf plasma-mds:usesDeviceConfiguration ;
-                                           rdfs:domain plasma-mds:Configuration ;
-                                           rdfs:range plasma-mds:ScientificExperiment .
-
-
-###  http://plasma-mds.org/ontology/consistsOfExperiment
-plasma-mds:consistsOfExperiment rdf:type owl:ObjectProperty ;
-                                owl:inverseOf plasma-mds:isPartOfStudy ;
-                                rdfs:range plasma-mds:ScientificExperiment ;
-                                rdfs:label "consists of"@en .
-
-
-###  http://plasma-mds.org/ontology/datasetIsDescribedIn
-plasma-mds:datasetIsDescribedIn rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:isDescribedIn ;
-                                owl:inverseOf plasma-mds:studyDescribesDataset ;
-                                rdfs:domain vivo:Dataset ;
-                                rdfs:label "is described in"@en .
-
-
-###  http://plasma-mds.org/ontology/describes
-plasma-mds:describes rdf:type owl:ObjectProperty ;
-                     owl:inverseOf plasma-mds:isDescribedIn ;
-                     rdfs:label "describes"@en .
-
-
-###  http://plasma-mds.org/ontology/developed
-plasma-mds:developed rdf:type owl:ObjectProperty ;
-                     owl:inverseOf plasma-mds:wasDevelopedBy ;
-                     rdfs:label "developed"@en .
-
-
-###  http://plasma-mds.org/ontology/developedDevice
-plasma-mds:developedDevice rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf plasma-mds:developed ;
-                           rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                           rdfs:range plasma-mds:Device ;
-                           rdfs:label "developed (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/developedMethod
-plasma-mds:developedMethod rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf plasma-mds:developed ;
-                           rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                           rdfs:range plasma-mds:Method ;
-                           rdfs:label "developed (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceHasExperiencedAgent
-plasma-mds:deviceHasExperiencedAgent rdf:type owl:ObjectProperty ;
-                                     rdfs:subPropertyOf plasma-mds:hasExperiencedAgent ;
-                                     owl:inverseOf plasma-mds:isExperiencedInDevice ;
-                                     rdfs:domain plasma-mds:Device ;
-                                     rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                     rdfs:label "has experienced agent"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceIsDescribedIn
-plasma-mds:deviceIsDescribedIn rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf plasma-mds:isDescribedIn ;
-                               owl:inverseOf plasma-mds:documentDescribesDevice ;
-                               rdfs:domain plasma-mds:Device ;
-                               rdfs:range bibo:Document ;
-                               rdfs:label "is described in"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceIsReferencedBy
-plasma-mds:deviceIsReferencedBy rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:isReferencedBy ;
-                                owl:inverseOf plasma-mds:referencesDevice ;
-                                rdfs:domain plasma-mds:Device ;
-                                rdfs:range bibo:Document ;
-                                rdfs:label "is referenced by"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceIsUsedInApplicationField
-plasma-mds:deviceIsUsedInApplicationField rdf:type owl:ObjectProperty ;
-                                          owl:equivalentProperty plasma-mds:hasApplicationField ;
-                                          rdfs:subPropertyOf plasma-mds:usedIn ;
-                                          rdfs:domain plasma-mds:Device ;
-                                          rdfs:range plasma-mds:ApplicationField ;
-                                          rdfs:label "is used in (application field)"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceIsUsedInExperiment
-plasma-mds:deviceIsUsedInExperiment rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf plasma-mds:usedIn ;
-                                    owl:inverseOf plasma-mds:experimentUsesDevice ;
-                                    rdfs:domain plasma-mds:Device ;
-                                    rdfs:range plasma-mds:ScientificExperiment ;
-                                    rdfs:label "is used in (experiment)"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceIsUsedInMethod
-plasma-mds:deviceIsUsedInMethod rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:usedIn ;
-                                owl:inverseOf plasma-mds:methodUsesDevice ;
-                                rdfs:domain plasma-mds:Device ;
-                                rdfs:range plasma-mds:Method ;
-                                rdfs:label "is used in (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceUsesDevice
-plasma-mds:deviceUsesDevice rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf plasma-mds:uses ;
-                            rdfs:domain plasma-mds:Device ;
-                            rdfs:range plasma-mds:Device ;
-                            rdfs:label "uses (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/deviceWasDevelopedBy
-plasma-mds:deviceWasDevelopedBy rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:wasDevelopedBy ;
-                                rdfs:domain plasma-mds:Device ;
-                                rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                rdfs:label "was developed by"@en .
-
-
-###  http://plasma-mds.org/ontology/documentDescribesDevice
-plasma-mds:documentDescribesDevice rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf plasma-mds:describes ;
-                                   rdfs:domain bibo:Document ;
-                                   rdfs:range plasma-mds:Device ;
-                                   rdfs:label "describes (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/documentDescribesMethod
-plasma-mds:documentDescribesMethod rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf plasma-mds:describes ;
-                                   owl:inverseOf plasma-mds:methodIsDescribedIn ;
-                                   rdfs:domain bibo:Document ;
-                                   rdfs:range plasma-mds:Method ;
-                                   rdfs:label "describes (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/experimentUsesDevice
-plasma-mds:experimentUsesDevice rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:uses ;
-                                rdfs:domain plasma-mds:ScientificExperiment ;
-                                rdfs:range plasma-mds:Device ;
-                                rdfs:label "uses (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/experimentUsesMethod
-plasma-mds:experimentUsesMethod rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:uses ;
-                                owl:inverseOf plasma-mds:methodIsUsedInExperiment ;
-                                rdfs:domain plasma-mds:ScientificExperiment ;
-                                rdfs:range plasma-mds:Method ;
-                                rdfs:label "uses (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/hasApplicationField
-plasma-mds:hasApplicationField rdf:type owl:ObjectProperty ;
-                               rdfs:domain plasma-mds:Device ;
-                               rdfs:range plasma-mds:ApplicationField ;
-                               rdfs:label "has application field"@en .
-
-
-###  http://plasma-mds.org/ontology/hasConfiguration
-plasma-mds:hasConfiguration rdf:type owl:ObjectProperty ;
-                            owl:inverseOf plasma-mds:isConfigurationFor ;
-                            rdfs:domain plasma-mds:Device ;
-                            rdfs:range plasma-mds:Configuration ;
-                            rdfs:label "has configuration"@en .
-
-
-###  http://plasma-mds.org/ontology/hasDiagnosticDevice
-plasma-mds:hasDiagnosticDevice rdf:type owl:ObjectProperty ;
-                               rdfs:domain plasma-mds:ScientificExperiment ;
-                               rdfs:range plasma-mds:DiagnosticDevice ;
-                               rdfs:label "has diagnostic device"@en .
-
-
-###  http://plasma-mds.org/ontology/hasExperiencedAgent
-plasma-mds:hasExperiencedAgent rdf:type owl:ObjectProperty ;
-                               owl:inverseOf plasma-mds:isExperiencedIn ;
-                               rdfs:label "has experienced agent"@en .
-
-
-###  http://plasma-mds.org/ontology/hasExperimentalStep
-plasma-mds:hasExperimentalStep rdf:type owl:ObjectProperty ;
-                               owl:inverseOf plasma-mds:isExperimentalStepOf ;
-                               rdfs:domain plasma-mds:ScientificExperiment ;
-                               rdfs:range plasma-mds:ExperimentalStep ;
-                               rdfs:label "has experimental step"@en .
-
-
-###  http://plasma-mds.org/ontology/hasMedium
-plasma-mds:hasMedium rdf:type owl:ObjectProperty ;
-                     owl:inverseOf plasma-mds:isMediumOf ;
-                     rdfs:domain plasma-mds:ScientificExperiment ;
-                     rdfs:range plasma-mds:Medium ;
-                     rdfs:label "has medium"@en .
-
-
-###  http://plasma-mds.org/ontology/hasOutput
-plasma-mds:hasOutput rdf:type owl:ObjectProperty ;
-                     rdfs:range vivo:Dataset ;
-                     rdfs:label "has output"@en .
-
-
-###  http://plasma-mds.org/ontology/hasPlasmaSource
-plasma-mds:hasPlasmaSource rdf:type owl:ObjectProperty ;
-                           owl:inverseOf plasma-mds:isPlasmaSourceOf ;
-                           rdfs:domain plasma-mds:ScientificExperiment ;
-                           rdfs:range plasma-mds:PlasmaSource ;
-                           rdfs:label "has plasma source"@en .
-
-
-###  http://plasma-mds.org/ontology/hasResearchTopic
-plasma-mds:hasResearchTopic rdf:type owl:ObjectProperty ;
-                            owl:inverseOf plasma-mds:isTopicFor ;
-                            rdfs:domain plasma-mds:ScientificExperiment ;
-                            rdfs:range plasma-mds:ResearchTopic ;
-                            rdfs:label "has research topic"@en .
-
-
-###  http://plasma-mds.org/ontology/hasTarget
-plasma-mds:hasTarget rdf:type owl:ObjectProperty ;
-                     owl:inverseOf plasma-mds:isTargetOf ;
-                     rdfs:domain plasma-mds:ScientificExperiment ;
-                     rdfs:range plasma-mds:Target ;
-                     rdfs:label "has target"@en .
-
-
-###  http://plasma-mds.org/ontology/isAffiliatedWith
-plasma-mds:isAffiliatedWith rdf:type owl:ObjectProperty ;
-                            rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                            rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                            rdfs:label "is affiliated with"@en .
-
-
-###  http://plasma-mds.org/ontology/isConductedBy
-plasma-mds:isConductedBy rdf:type owl:ObjectProperty ;
-                         rdfs:domain plasma-mds:ScientificExperiment ;
-                         rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                         rdfs:label "is conducted by"@en .
-
-
-###  http://plasma-mds.org/ontology/isConfigurationFor
-plasma-mds:isConfigurationFor rdf:type owl:ObjectProperty ;
-                              rdfs:domain plasma-mds:Configuration ;
-                              rdfs:range plasma-mds:Device ;
-                              rdfs:label "is configuration for"@en .
-
-
-###  http://plasma-mds.org/ontology/isDescribedIn
-plasma-mds:isDescribedIn rdf:type owl:ObjectProperty ;
-                         rdfs:label "is described in"@en .
-
-
-###  http://plasma-mds.org/ontology/isDeviceTypeFor
-plasma-mds:isDeviceTypeFor rdf:type owl:ObjectProperty ;
-                           owl:inverseOf plasma-mds:isOfDeviceType ;
-                           rdfs:domain plasma-mds:DeviceType ;
-                           rdfs:range plasma-mds:Device ;
-                           rdfs:label "is device type for"@en .
-
-
-###  http://plasma-mds.org/ontology/isDiagnosedUsingDevice
-plasma-mds:isDiagnosedUsingDevice rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf plasma-mds:isUsedToDiagnose ;
-                                  rdfs:domain plasma-mds:PlasmaSource ;
-                                  rdfs:range plasma-mds:DiagnosticDevice ;
-                                  rdfs:label "is diagnosed using (device)" .
-
-
-###  http://plasma-mds.org/ontology/isExperiencedIn
-plasma-mds:isExperiencedIn rdf:type owl:ObjectProperty ;
-                           rdfs:label "is experienced in"@en .
-
-
-###  http://plasma-mds.org/ontology/isExperiencedInDevice
-plasma-mds:isExperiencedInDevice rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf plasma-mds:isExperiencedIn ;
-                                 rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                 rdfs:range plasma-mds:Device ;
-                                 rdfs:label "is experienced in (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/isExperiencedInMethod
-plasma-mds:isExperiencedInMethod rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf plasma-mds:isExperiencedIn ;
-                                 owl:inverseOf plasma-mds:methodHasExperiencedAgent ;
-                                 rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                 rdfs:range plasma-mds:Method ;
-                                 rdfs:label "is experienced in (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/isExperimentalStepOf
-plasma-mds:isExperimentalStepOf rdf:type owl:ObjectProperty ;
-                                rdfs:domain plasma-mds:ExperimentalStep ;
-                                rdfs:range plasma-mds:ScientificExperiment ;
-                                rdfs:label "is experimental step of"@en .
-
-
-###  http://plasma-mds.org/ontology/isMediumOf
-plasma-mds:isMediumOf rdf:type owl:ObjectProperty ;
-                      rdfs:domain plasma-mds:Medium ;
-                      rdfs:range plasma-mds:ScientificExperiment ;
-                      rdfs:label "is medium of"@en .
-
-
-###  http://plasma-mds.org/ontology/isMethodToDiagnose
-plasma-mds:isMethodToDiagnose rdf:type owl:ObjectProperty ;
-                              rdfs:domain plasma-mds:Method ;
-                              rdfs:range plasma-mds:PlasmaSource ;
-                              rdfs:label "is method to diagnose"@en .
-
-
-###  http://plasma-mds.org/ontology/isOfDeviceType
-plasma-mds:isOfDeviceType rdf:type owl:ObjectProperty ;
-                          rdfs:domain plasma-mds:Device ;
-                          rdfs:range plasma-mds:DeviceType ;
-                          rdfs:label "is device type of"@en .
-
-
-###  http://plasma-mds.org/ontology/isOfPlasmaSourceType
-plasma-mds:isOfPlasmaSourceType rdf:type owl:ObjectProperty ;
-                                owl:inverseOf plasma-mds:isPlasmaSourceTypeFor ;
-                                rdfs:domain plasma-mds:PlasmaSource ;
-                                rdfs:range plasma-mds:PlasmaSourceType ;
-                                rdfs:label "is plasma source of type"@en .
-
-
-###  http://plasma-mds.org/ontology/isPartOfStudy
-plasma-mds:isPartOfStudy rdf:type owl:ObjectProperty ;
-                         rdfs:domain plasma-mds:ScientificExperiment ;
-                         rdfs:label "is part of"@en .
-
-
-###  http://plasma-mds.org/ontology/isPlasmaSourceOf
-plasma-mds:isPlasmaSourceOf rdf:type owl:ObjectProperty ;
-                            rdfs:domain plasma-mds:PlasmaSource ;
-                            rdfs:range plasma-mds:ScientificExperiment ;
-                            rdfs:label "is plasma source of"@en .
-
-
-###  http://plasma-mds.org/ontology/isPlasmaSourceTypeFor
-plasma-mds:isPlasmaSourceTypeFor rdf:type owl:ObjectProperty ;
-                                 rdfs:domain plasma-mds:PlasmaSourceType ;
-                                 rdfs:range plasma-mds:PlasmaSource ;
-                                 rdfs:label "is plasma source type for"@en .
-
-
-###  http://plasma-mds.org/ontology/isReferencedBy
-plasma-mds:isReferencedBy rdf:type owl:ObjectProperty ;
-                          owl:inverseOf plasma-mds:references ;
-                          rdfs:label "is referenced by"@en .
-
-
-###  http://plasma-mds.org/ontology/isSpecificationFor
-plasma-mds:isSpecificationFor rdf:type owl:ObjectProperty ;
-                              rdfs:range plasma-mds:Device ;
-                              rdfs:label "is specification for"@en .
-
-
-###  http://plasma-mds.org/ontology/isSupplementedBy
-plasma-mds:isSupplementedBy rdf:type owl:ObjectProperty ;
-                            owl:inverseOf plasma-mds:supplements ;
-                            rdfs:domain bibo:Document ;
-                            rdfs:label "is supplemented by"@en .
-
-
-###  http://plasma-mds.org/ontology/isTargetOf
-plasma-mds:isTargetOf rdf:type owl:ObjectProperty ;
-                      rdfs:domain plasma-mds:Target ;
-                      rdfs:range plasma-mds:PlasmaStudy ;
-                      rdfs:label "is target of"@en .
-
-
-###  http://plasma-mds.org/ontology/isTopicFor
-plasma-mds:isTopicFor rdf:type owl:ObjectProperty ;
-                      rdfs:domain plasma-mds:ResearchTopic ;
-                      rdfs:range plasma-mds:ScientificExperiment ;
-                      rdfs:label "is topic for"@en .
-
-
-###  http://plasma-mds.org/ontology/isTreatedWith
-plasma-mds:isTreatedWith rdf:type owl:ObjectProperty ;
-                         owl:inverseOf plasma-mds:treats ;
-                         rdfs:domain plasma-mds:Target ;
-                         rdfs:range plasma-mds:PlasmaSource ;
-                         rdfs:label "is treated with"@en .
-
-
-###  http://plasma-mds.org/ontology/isUsedToDiagnose
-plasma-mds:isUsedToDiagnose rdf:type owl:ObjectProperty ;
-                            rdfs:domain plasma-mds:DiagnosticDevice ;
-                            rdfs:range plasma-mds:PlasmaSource ;
-                            rdfs:label "is used to diagnose"@en .
-
-
-###  http://plasma-mds.org/ontology/mediumIsUsedInPlasmaSource
-plasma-mds:mediumIsUsedInPlasmaSource rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf plasma-mds:usedIn ;
-                                      owl:inverseOf plasma-mds:plasmaSourceUsesMedium ;
-                                      rdfs:domain plasma-mds:Medium ;
-                                      rdfs:range plasma-mds:PlasmaSource ;
-                                      rdfs:label "is used in"@en .
-
-
-###  http://plasma-mds.org/ontology/methodHasExperiencedAgent
-plasma-mds:methodHasExperiencedAgent rdf:type owl:ObjectProperty ;
-                                     rdfs:subPropertyOf plasma-mds:hasExperiencedAgent ;
-                                     rdfs:domain plasma-mds:Method ;
-                                     rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                     rdfs:label "has experienced agent"@en .
-
-
-###  http://plasma-mds.org/ontology/methodIsDescribedIn
-plasma-mds:methodIsDescribedIn rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf plasma-mds:isDescribedIn ;
-                               rdfs:domain plasma-mds:Method ;
-                               rdfs:range bibo:Document ;
-                               rdfs:label "is described in"@en .
-
-
-###  http://plasma-mds.org/ontology/methodIsReferencedBy
-plasma-mds:methodIsReferencedBy rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:isReferencedBy ;
-                                owl:inverseOf plasma-mds:referencesMethod ;
-                                rdfs:domain plasma-mds:DiagnosticMethod ;
-                                rdfs:range bibo:Document ;
-                                rdfs:label "is referenced by"@en .
-
-
-###  http://plasma-mds.org/ontology/methodIsUsedInExperiment
-plasma-mds:methodIsUsedInExperiment rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf plasma-mds:usedIn ;
-                                    rdfs:domain plasma-mds:Method ;
-                                    rdfs:range plasma-mds:ScientificExperiment ;
-                                    rdfs:label "is used in"@en .
-
-
-###  http://plasma-mds.org/ontology/methodUsesDevice
-plasma-mds:methodUsesDevice rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf plasma-mds:uses ;
-                            rdfs:domain plasma-mds:Method ;
-                            rdfs:range plasma-mds:Device ;
-                            rdfs:label "uses"@en .
-
-
-###  http://plasma-mds.org/ontology/methodWasDevelopedBy
-plasma-mds:methodWasDevelopedBy rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf plasma-mds:wasDevelopedBy ;
-                                rdfs:domain plasma-mds:Method ;
-                                rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                rdfs:label "was developed by"@en .
-
-
-###  http://plasma-mds.org/ontology/plasmaSourceUsesMedium
-plasma-mds:plasmaSourceUsesMedium rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf plasma-mds:uses ;
-                                  rdfs:domain plasma-mds:PlasmaSource ;
-                                  rdfs:range plasma-mds:Medium ;
-                                  rdfs:label "uses (medium)"@en .
-
-
-###  http://plasma-mds.org/ontology/references
-plasma-mds:references rdf:type owl:ObjectProperty .
-
-
-###  http://plasma-mds.org/ontology/referencesDevice
-plasma-mds:referencesDevice rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf plasma-mds:references ;
-                            rdfs:domain bibo:Document ;
-                            rdfs:range plasma-mds:Device ;
-                            rdfs:label "references (device)"@en .
-
-
-###  http://plasma-mds.org/ontology/referencesMethod
-plasma-mds:referencesMethod rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf plasma-mds:references ;
-                            rdfs:domain bibo:Document ;
-                            rdfs:range plasma-mds:Method ;
-                            rdfs:label "references (method)"@en .
-
-
-###  http://plasma-mds.org/ontology/studyDescribesDataset
-plasma-mds:studyDescribesDataset rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf plasma-mds:describes ;
-                                 rdfs:range vivo:Dataset ;
+###  https://plasma-mds.org/ontology/plasma-o/deviceHasExperiencedAgent
+plasma-o:deviceHasExperiencedAgent rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf plasma-o:hasExperiencedAgent ;
+                                   owl:inverseOf plasma-o:isExperiencedInDevice ;
+                                   rdfs:domain plasma-o:Device ;
+                                   rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                                   rdfs:comment "[Device] has experienced agent [Agent]"@en ;
+                                   rdfs:label "has experienced agent"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceIsDescribedIn
+plasma-o:deviceIsDescribedIn rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf plasma-o:isDescribedIn ;
+                             owl:inverseOf plasma-o:documentDescribesDevice ;
+                             rdfs:domain plasma-o:Device ;
+                             rdfs:range bibo:Document ;
+                             rdfs:comment "[Device] is described in [Document]"@en ;
+                             rdfs:label "is described in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceIsReferencedBy
+plasma-o:deviceIsReferencedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:isReferencedBy ;
+                              owl:inverseOf plasma-o:referencesDevice ;
+                              rdfs:domain plasma-o:Device ;
+                              rdfs:range bibo:Document ;
+                              rdfs:comment "[Device] is referenced by [Document]"@en ;
+                              rdfs:label "is referenced by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceIsUsedInApplicationField
+plasma-o:deviceIsUsedInApplicationField rdf:type owl:ObjectProperty ;
+                                        owl:equivalentProperty plasma-o:hasApplicationField ;
+                                        rdfs:subPropertyOf plasma-o:usedIn ;
+                                        rdfs:domain plasma-o:Device ;
+                                        rdfs:range plasma-o:ApplicationField ;
+                                        rdfs:comment "[Device] is used in [Application Field]"@en ;
+                                        rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceIsUsedInExperiment
+plasma-o:deviceIsUsedInExperiment rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf plasma-o:usedIn ;
+                                  owl:inverseOf plasma-o:experimentUsesDevice ;
+                                  rdfs:domain plasma-o:Device ;
+                                  rdfs:range plasma-o:ScientificExperiment ;
+                                  rdfs:comment "[Device] is used in [Scientific Experiment]"@en ;
+                                  rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceIsUsedInMethod
+plasma-o:deviceIsUsedInMethod rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:usedIn ;
+                              owl:inverseOf plasma-o:methodUsesDevice ;
+                              rdfs:domain plasma-o:Device ;
+                              rdfs:range plasma-o:Method ;
+                              rdfs:comment "[Device] is used in [Method]"@en ;
+                              rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceUsesDevice
+plasma-o:deviceUsesDevice rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf plasma-o:uses ;
+                          rdfs:domain plasma-o:Device ;
+                          rdfs:range plasma-o:Device ;
+                          rdfs:comment "[Device] uses [Device]"@en ;
+                          rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/deviceWasDevelopedBy
+plasma-o:deviceWasDevelopedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:wasDevelopedBy ;
+                              rdfs:domain plasma-o:Device ;
+                              rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                              rdfs:comment "[Device] was developed by [Agent]"@en ;
+                              rdfs:label "was developed by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/documentDescribesDevice
+plasma-o:documentDescribesDevice rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf plasma-o:describes ;
+                                 rdfs:domain bibo:Document ;
+                                 rdfs:range plasma-o:Device ;
+                                 rdfs:comment "[Document] describes [Device]"@en ;
                                  rdfs:label "describes"@en .
 
 
-###  http://plasma-mds.org/ontology/supplements
-plasma-mds:supplements rdf:type owl:ObjectProperty ;
-                       rdfs:domain vivo:Dataset ;
-                       rdfs:range bibo:Document ;
-                       rdfs:label "supplements"@en .
+###  https://plasma-mds.org/ontology/plasma-o/documentDescribesMethod
+plasma-o:documentDescribesMethod rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf plasma-o:describes ;
+                                 owl:inverseOf plasma-o:methodIsDescribedIn ;
+                                 rdfs:domain bibo:Document ;
+                                 rdfs:range plasma-o:Method ;
+                                 rdfs:comment "[Document] describes [Method]"@en ;
+                                 rdfs:label "describes"@en .
 
 
-###  http://plasma-mds.org/ontology/treats
-plasma-mds:treats rdf:type owl:ObjectProperty ;
-                  rdfs:domain plasma-mds:PlasmaSource ;
-                  rdfs:range plasma-mds:Target ;
-                  rdfs:label "treats"@en .
+###  https://plasma-mds.org/ontology/plasma-o/experimentUsesDevice
+plasma-o:experimentUsesDevice rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:uses ;
+                              rdfs:domain plasma-o:ScientificExperiment ;
+                              rdfs:range plasma-o:Device ;
+                              rdfs:comment "[Scientific Experiment] uses [Device]"@en ;
+                              rdfs:label "uses"@en .
 
 
-###  http://plasma-mds.org/ontology/usedIn
-plasma-mds:usedIn rdf:type owl:ObjectProperty ;
-                  rdfs:label "is used in"@en .
+###  https://plasma-mds.org/ontology/plasma-o/experimentUsesMethod
+plasma-o:experimentUsesMethod rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:uses ;
+                              owl:inverseOf plasma-o:methodIsUsedInExperiment ;
+                              rdfs:domain plasma-o:ScientificExperiment ;
+                              rdfs:range plasma-o:Method ;
+                              rdfs:comment "[Scientific Experiment] uses [Method]"@en ;
+                              rdfs:label "uses"@en .
 
 
-###  http://plasma-mds.org/ontology/uses
-plasma-mds:uses rdf:type owl:ObjectProperty ;
-                rdfs:label "uses"@en .
+###  https://plasma-mds.org/ontology/plasma-o/hasApplicationField
+plasma-o:hasApplicationField rdf:type owl:ObjectProperty ;
+                             rdfs:domain plasma-o:Device ;
+                             rdfs:range plasma-o:ApplicationField ;
+                             rdfs:comment "[Device] has application field [Application Field]"@en ;
+                             rdfs:label "has application field"@en .
 
 
-###  http://plasma-mds.org/ontology/usesDeviceConfiguration
-plasma-mds:usesDeviceConfiguration rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf plasma-mds:uses ;
-                                   rdfs:domain plasma-mds:ScientificExperiment ;
-                                   rdfs:range plasma-mds:Configuration .
+###  https://plasma-mds.org/ontology/plasma-o/hasConfiguration
+plasma-o:hasConfiguration rdf:type owl:ObjectProperty ;
+                          owl:inverseOf plasma-o:isConfigurationFor ;
+                          rdfs:domain plasma-o:Device ;
+                          rdfs:range plasma-o:Configuration ;
+                          rdfs:comment "[Device] has configuration [Configuration]"@en ;
+                          rdfs:label "has configuration"@en .
 
 
-###  http://plasma-mds.org/ontology/wasDevelopedBy
-plasma-mds:wasDevelopedBy rdf:type owl:ObjectProperty ;
-                          rdfs:label "was developed by"@en .
+###  https://plasma-mds.org/ontology/plasma-o/hasDiagnosticDevice
+plasma-o:hasDiagnosticDevice rdf:type owl:ObjectProperty ;
+                             rdfs:domain plasma-o:ScientificExperiment ;
+                             rdfs:range plasma-o:DiagnosticDevice ;
+                             rdfs:comment "[Scientific Experiment] has diagnostic device [Diagnostic Device]"@en ;
+                             rdfs:label "has diagnostic device"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasExperiencedAgent
+plasma-o:hasExperiencedAgent rdf:type owl:ObjectProperty ;
+                             owl:inverseOf plasma-o:isExperiencedIn ;
+                             rdfs:label "has experienced agent"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasExperimentalStep
+plasma-o:hasExperimentalStep rdf:type owl:ObjectProperty ;
+                             owl:inverseOf plasma-o:isExperimentalStepOf ;
+                             rdfs:domain plasma-o:ScientificExperiment ;
+                             rdfs:range plasma-o:ExperimentalStep ;
+                             rdfs:comment "[Scientific Experiment] has experimental step [Experimental Step]"@en ;
+                             rdfs:label "has experimental step"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasMedium
+plasma-o:hasMedium rdf:type owl:ObjectProperty ;
+                   owl:inverseOf plasma-o:isMediumOf ;
+                   rdfs:domain plasma-o:ScientificExperiment ;
+                   rdfs:range plasma-o:Medium ;
+                   rdfs:comment "[Scientific Experiment] has medium [Medium]"@en ;
+                   rdfs:label "has medium"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasOutput
+plasma-o:hasOutput rdf:type owl:ObjectProperty ;
+                   rdfs:domain plasma-o:PlasmaStudy ;
+                   rdfs:range vivo:Dataset ;
+                   rdfs:comment "[Plasma Study] has output [Dataset]"@en ;
+                   rdfs:label "has output"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasPlasmaSource
+plasma-o:hasPlasmaSource rdf:type owl:ObjectProperty ;
+                         owl:inverseOf plasma-o:isPlasmaSourceOf ;
+                         rdfs:domain plasma-o:ScientificExperiment ;
+                         rdfs:range plasma-o:PlasmaSource ;
+                         rdfs:comment "[Scientific Experiment] has plasma source [Plasma Source]"@en ;
+                         rdfs:label "has plasma source"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasResearchTopic
+plasma-o:hasResearchTopic rdf:type owl:ObjectProperty ;
+                          owl:inverseOf plasma-o:isTopicFor ;
+                          rdfs:domain plasma-o:ScientificExperiment ;
+                          rdfs:range plasma-o:ResearchTopic ;
+                          rdfs:comment "[Scientific Experiment] has research topic [Research Topic]"@en ;
+                          rdfs:label "has research topic"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/hasTarget
+plasma-o:hasTarget rdf:type owl:ObjectProperty ;
+                   owl:inverseOf plasma-o:isTargetOf ;
+                   rdfs:domain plasma-o:ScientificExperiment ;
+                   rdfs:range plasma-o:Target ;
+                   rdfs:comment "[Scientific Experiment] has target [Target]"@en ;
+                   rdfs:label "has target"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isAffiliatedWith
+plasma-o:isAffiliatedWith rdf:type owl:ObjectProperty ;
+                          rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                          rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                          rdfs:comment "[Agent] is affiliated with [Agent]"@en ;
+                          rdfs:label "is affiliated with"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isConductedBy
+plasma-o:isConductedBy rdf:type owl:ObjectProperty ;
+                       rdfs:domain plasma-o:ScientificExperiment ;
+                       rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                       rdfs:comment "[Scientific Experiment] is conducted by [Agent]"@en ;
+                       rdfs:label "is conducted by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isConfigurationFor
+plasma-o:isConfigurationFor rdf:type owl:ObjectProperty ;
+                            rdfs:domain plasma-o:Configuration ;
+                            rdfs:range plasma-o:Device ;
+                            rdfs:comment "[Configuration] is configuration for [Device]"@en ;
+                            rdfs:label "is configuration for"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isDescribedIn
+plasma-o:isDescribedIn rdf:type owl:ObjectProperty ;
+                       rdfs:label "is described in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isDeviceTypeFor
+plasma-o:isDeviceTypeFor rdf:type owl:ObjectProperty ;
+                         owl:inverseOf plasma-o:isOfDeviceType ;
+                         rdfs:domain plasma-o:DeviceType ;
+                         rdfs:range plasma-o:Device ;
+                         rdfs:comment "[Device Type] is device type for [Device]"@en ;
+                         rdfs:label "is device type for"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isDiagnosedUsingDevice
+plasma-o:isDiagnosedUsingDevice rdf:type owl:ObjectProperty ;
+                                owl:inverseOf plasma-o:isUsedToDiagnose ;
+                                rdfs:domain plasma-o:PlasmaSource ;
+                                rdfs:range plasma-o:DiagnosticDevice ;
+                                rdfs:comment "[Plasma Source] is diagnosed using [Diagnostic Device]"@en ;
+                                rdfs:label "is diagnosed using"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isExperiencedIn
+plasma-o:isExperiencedIn rdf:type owl:ObjectProperty ;
+                         rdfs:label "is experienced in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isExperiencedInDevice
+plasma-o:isExperiencedInDevice rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf plasma-o:isExperiencedIn ;
+                               rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                               rdfs:range plasma-o:Device ;
+                               rdfs:comment "[Agent] is experienced in [Device]"@en ;
+                               rdfs:label "is experienced in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isExperiencedInMethod
+plasma-o:isExperiencedInMethod rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf plasma-o:isExperiencedIn ;
+                               owl:inverseOf plasma-o:methodHasExperiencedAgent ;
+                               rdfs:domain <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                               rdfs:range plasma-o:Method ;
+                               rdfs:comment "[Agent] is experienced in [Method]"@en ;
+                               rdfs:label "is experienced in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isExperimentalStepOf
+plasma-o:isExperimentalStepOf rdf:type owl:ObjectProperty ;
+                              rdfs:domain plasma-o:ExperimentalStep ;
+                              rdfs:range plasma-o:ScientificExperiment ;
+                              rdfs:comment "[Experimental Step] is experimental step of [Scientific Experiment]"@en ;
+                              rdfs:label "is experimental step of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isMediumOf
+plasma-o:isMediumOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain plasma-o:Medium ;
+                    rdfs:range plasma-o:ScientificExperiment ;
+                    rdfs:comment "[Medium] is medium of [Scientific Experiment]"@en ;
+                    rdfs:label "is medium of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isMethodToDiagnose
+plasma-o:isMethodToDiagnose rdf:type owl:ObjectProperty ;
+                            rdfs:domain plasma-o:Method ;
+                            rdfs:range plasma-o:PlasmaSource ;
+                            rdfs:comment "[Method] is method to diagnose [Plasma Source]"@en ;
+                            rdfs:label "is method to diagnose"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isOfDeviceType
+plasma-o:isOfDeviceType rdf:type owl:ObjectProperty ;
+                        rdfs:domain plasma-o:Device ;
+                        rdfs:range plasma-o:DeviceType ;
+                        rdfs:comment "[Device] is device type of [Device Type]"@en ;
+                        rdfs:label "is device type of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isOfPlasmaSourceType
+plasma-o:isOfPlasmaSourceType rdf:type owl:ObjectProperty ;
+                              owl:inverseOf plasma-o:isPlasmaSourceTypeFor ;
+                              rdfs:domain plasma-o:PlasmaSource ;
+                              rdfs:range plasma-o:PlasmaSourceType ;
+                              rdfs:comment "[Plasma Source] is plasma source of type [Plasma Source Type]"@en ;
+                              rdfs:label "is plasma source of type"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isPartOfStudy
+plasma-o:isPartOfStudy rdf:type owl:ObjectProperty ;
+                       rdfs:domain plasma-o:ScientificExperiment ;
+                       rdfs:range plasma-o:ScientificExperiment ;
+                       rdfs:comment "[Scientific Experiment] is part of [Scientific Experiment]"@en ;
+                       rdfs:label "is part of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isPlasmaSourceOf
+plasma-o:isPlasmaSourceOf rdf:type owl:ObjectProperty ;
+                          rdfs:domain plasma-o:PlasmaSource ;
+                          rdfs:range plasma-o:ScientificExperiment ;
+                          rdfs:comment "[Plasma Source] is plasma source of [Scientific Experiment]"@en ;
+                          rdfs:label "is plasma source of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isPlasmaSourceTypeFor
+plasma-o:isPlasmaSourceTypeFor rdf:type owl:ObjectProperty ;
+                               rdfs:domain plasma-o:PlasmaSourceType ;
+                               rdfs:range plasma-o:PlasmaSource ;
+                               rdfs:comment "[Plasma Source Type] is plasma source type for [Plasma Source]"@en ;
+                               rdfs:label "is plasma source type for"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isReferencedBy
+plasma-o:isReferencedBy rdf:type owl:ObjectProperty ;
+                        owl:inverseOf plasma-o:references ;
+                        rdfs:label "is referenced by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isSpecificationFor
+plasma-o:isSpecificationFor rdf:type owl:ObjectProperty ;
+                            rdfs:range plasma-o:Device ;
+                            rdfs:label "is specification for"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isSupplementedBy
+plasma-o:isSupplementedBy rdf:type owl:ObjectProperty ;
+                          owl:inverseOf plasma-o:supplements ;
+                          rdfs:domain bibo:Document ;
+                          rdfs:range bibo:Document ;
+                          rdfs:comment "[Document] is supplemented by [Document]"@en ;
+                          rdfs:label "is supplemented by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isTargetOf
+plasma-o:isTargetOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain plasma-o:Target ;
+                    rdfs:range plasma-o:PlasmaStudy ;
+                    rdfs:comment "[Target] is target of [Plasma Study]"@en ;
+                    rdfs:label "is target of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isTopicFor
+plasma-o:isTopicFor rdf:type owl:ObjectProperty ;
+                    rdfs:domain plasma-o:ResearchTopic ;
+                    rdfs:range plasma-o:ScientificExperiment ;
+                    rdfs:comment "[Research Topic] is topic for [Scientific Experiment]"@en ;
+                    rdfs:label "is topic for"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isTreatedWith
+plasma-o:isTreatedWith rdf:type owl:ObjectProperty ;
+                       owl:inverseOf plasma-o:treats ;
+                       rdfs:domain plasma-o:Target ;
+                       rdfs:range plasma-o:PlasmaSource ;
+                       rdfs:comment "[Target] is treated with [Plasma Source]"@en ;
+                       rdfs:label "is treated with"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/isUsedToDiagnose
+plasma-o:isUsedToDiagnose rdf:type owl:ObjectProperty ;
+                          rdfs:domain plasma-o:DiagnosticDevice ;
+                          rdfs:range plasma-o:PlasmaSource ;
+                          rdfs:comment "[Diagnostic Device] is used to diagnose [Plasma Source]"@en ;
+                          rdfs:label "is used to diagnose"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/mediumIsUsedInPlasmaSource
+plasma-o:mediumIsUsedInPlasmaSource rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf plasma-o:usedIn ;
+                                    owl:inverseOf plasma-o:plasmaSourceUsesMedium ;
+                                    rdfs:domain plasma-o:Medium ;
+                                    rdfs:range plasma-o:PlasmaSource ;
+                                    rdfs:comment "[Medium] is used in [Plasma Source]"@en ;
+                                    rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodHasExperiencedAgent
+plasma-o:methodHasExperiencedAgent rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf plasma-o:hasExperiencedAgent ;
+                                   rdfs:domain plasma-o:Method ;
+                                   rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                                   rdfs:comment "[Method] has experienced agent [Agent]"@en ;
+                                   rdfs:label "has experienced agent"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodIsDescribedIn
+plasma-o:methodIsDescribedIn rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf plasma-o:isDescribedIn ;
+                             rdfs:domain plasma-o:Method ;
+                             rdfs:range bibo:Document ;
+                             rdfs:comment "[Method] is described in [Document]"@en ;
+                             rdfs:label "is described in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodIsReferencedBy
+plasma-o:methodIsReferencedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:isReferencedBy ;
+                              owl:inverseOf plasma-o:referencesMethod ;
+                              rdfs:domain plasma-o:DiagnosticMethod ;
+                              rdfs:range bibo:Document ;
+                              rdfs:comment "[Diagnostic Method] is referenced by [Document]"@en ;
+                              rdfs:label "is referenced by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodIsUsedInExperiment
+plasma-o:methodIsUsedInExperiment rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf plasma-o:usedIn ;
+                                  rdfs:domain plasma-o:Method ;
+                                  rdfs:range plasma-o:ScientificExperiment ;
+                                  rdfs:comment "[Method] is used in [Scientific Experiment]"@en ;
+                                  rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodUsesDevice
+plasma-o:methodUsesDevice rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf plasma-o:uses ;
+                          rdfs:domain plasma-o:Method ;
+                          rdfs:range plasma-o:Device ;
+                          rdfs:comment "[Method] uses [Device]"@en ;
+                          rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/methodWasDevelopedBy
+plasma-o:methodWasDevelopedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf plasma-o:wasDevelopedBy ;
+                              rdfs:domain plasma-o:Method ;
+                              rdfs:range <http://xmlns.com/foaf/0.1/#term_Agent> ;
+                              rdfs:comment "[Method] was developed by [Agent]"@en ;
+                              rdfs:label "was developed by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/plasmaSourceUsesMedium
+plasma-o:plasmaSourceUsesMedium rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf plasma-o:uses ;
+                                rdfs:domain plasma-o:PlasmaSource ;
+                                rdfs:range plasma-o:Medium ;
+                                rdfs:comment "[Plasma Source] uses [Medium]"@en ;
+                                rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/references
+plasma-o:references rdf:type owl:ObjectProperty .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/referencesDevice
+plasma-o:referencesDevice rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf plasma-o:references ;
+                          rdfs:domain bibo:Document ;
+                          rdfs:range plasma-o:Device ;
+                          rdfs:comment "[Document] references [Device]"@en ;
+                          rdfs:label "references"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/referencesMethod
+plasma-o:referencesMethod rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf plasma-o:references ;
+                          rdfs:domain bibo:Document ;
+                          rdfs:range plasma-o:Method ;
+                          rdfs:comment "[Document] references [Method]"@en ;
+                          rdfs:label "references"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/studyDescribesDataset
+plasma-o:studyDescribesDataset rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf plasma-o:describes ;
+                               rdfs:domain plasma-o:PlasmaStudy ;
+                               rdfs:range vivo:Dataset ;
+                               rdfs:comment "[Plasma Study] describes [Dataset]"@en ;
+                               rdfs:label "describes"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/supplements
+plasma-o:supplements rdf:type owl:ObjectProperty ;
+                     rdfs:domain vivo:Dataset ;
+                     rdfs:range bibo:Document ;
+                     rdfs:comment "[Dataset] supplements [Document]"@en ;
+                     rdfs:label "supplements"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/treats
+plasma-o:treats rdf:type owl:ObjectProperty ;
+                rdfs:domain plasma-o:PlasmaSource ;
+                rdfs:range plasma-o:Target ;
+                rdfs:comment "[Plasma Source] treats [Target]"@en ;
+                rdfs:label "treats"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/usedIn
+plasma-o:usedIn rdf:type owl:ObjectProperty ;
+                rdfs:label "is used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/uses
+plasma-o:uses rdf:type owl:ObjectProperty ;
+              rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/usesDeviceConfiguration
+plasma-o:usesDeviceConfiguration rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf plasma-o:uses ;
+                                 rdfs:domain plasma-o:ScientificExperiment ;
+                                 rdfs:range plasma-o:Configuration ;
+                                 rdfs:comment "[Scientific Experiment] uses [Configuration]"@en ;
+                                 rdfs:label "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/wasDevelopedBy
+plasma-o:wasDevelopedBy rdf:type owl:ObjectProperty ;
+                        rdfs:label "was developed by"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://plasma-mds.org/ontology/AdjustedDevice
-plasma-mds:AdjustedDevice rdf:type owl:Class ;
-                          rdfs:subClassOf plasma-mds:Device ;
-                          rdfs:comment "A device that uses another device."@en ;
-                          rdfs:label "Adjusted Device"@en .
+###  http://purl.obolibrary.org/obo/ERO_0000004
+obo:ERO_0000004 rdf:type owl:Class ;
+                owl:equivalentClass plasma-o:Device ;
+                rdfs:comment "Material entity that is designed to have a function and play a role in scientific investigation."@en ;
+                rdfs:label "Instrument"@en .
 
 
-###  http://plasma-mds.org/ontology/ApplicationField
-plasma-mds:ApplicationField rdf:type owl:Class ;
-                            rdfs:comment "The application field is the typical application area in which a plasma source is used, like decontamination."@en ;
-                            rdfs:label "Application Field"@en .
+###  http://purl.obolibrary.org/obo/ERO_0000007
+obo:ERO_0000007 rdf:type owl:Class ;
+                owl:equivalentClass plasma-o:Method ;
+                rdfs:comment """A technique is a planned process used to accomplish a specific activity or task.
 
-
-###  http://plasma-mds.org/ontology/ComputationalExperiment
-plasma-mds:ComputationalExperiment rdf:type owl:Class ;
-                                   rdfs:subClassOf plasma-mds:ScientificExperiment ;
-                                   rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ComputationalExperiment
-
-A computational experiment is a scientific experiment which investigates cause-effect relations between known and unknown (target) variables by manipulating the computational (non-physical) domain adequate to the real-world domain."""@en ;
-                                   rdfs:label "Computational Experiment"@en .
-
-
-###  http://plasma-mds.org/ontology/Configuration
-plasma-mds:Configuration rdf:type owl:Class ;
-                         rdfs:comment "A set of settings and parameters of a device or instrument."@en ;
-                         rdfs:label "Configuration"@en .
-
-
-###  http://plasma-mds.org/ontology/Device
-plasma-mds:Device rdf:type owl:Class ;
-                  rdfs:label "Device"@en .
-
-
-###  http://plasma-mds.org/ontology/DeviceType
-plasma-mds:DeviceType rdf:type owl:Class ;
-                      rdfs:label "Device Type"@en .
-
-
-###  http://plasma-mds.org/ontology/DiagnosticDevice
-plasma-mds:DiagnosticDevice rdf:type owl:Class ;
-                            rdfs:subClassOf plasma-mds:Device ;
-                            rdfs:comment "Devices used to measure and identify physical quantities."@en ;
-                            rdfs:label "Diagnostic Device"@en .
-
-
-###  http://plasma-mds.org/ontology/DiagnosticMethod
-plasma-mds:DiagnosticMethod rdf:type owl:Class ;
-                            rdfs:subClassOf plasma-mds:Method ;
-                            owl:disjointWith bibo:Document ;
-                            rdfs:comment """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
-Wikipedia: https://en.wikipedia.org/wiki/Plasma_diagnostics"""@en ;
-                            rdfs:label "Diagnostic Method"@en .
-
-
-###  http://plasma-mds.org/ontology/ExperimentalStep
-plasma-mds:ExperimentalStep rdf:type owl:Class ;
-                            rdfs:label "Experimental Step"@en .
-
-
-###  http://plasma-mds.org/ontology/Medium
-plasma-mds:Medium rdf:type owl:Class ;
-                  rdfs:comment "Gas, mixture of gases, or other substance, which is either (partially) ionized or otherwise activated by a source device."@en ;
-                  rdfs:label "Medium"@en .
-
-
-###  http://plasma-mds.org/ontology/Method
-plasma-mds:Method rdf:type owl:Class ;
-                  rdfs:label "Method"@en .
-
-
-###  http://plasma-mds.org/ontology/NonPlasmaTreatedSample
-plasma-mds:NonPlasmaTreatedSample rdf:type owl:Class ;
-                                  rdfs:subClassOf plasma-mds:Sample ;
-                                  rdfs:comment "Any entity that is a subject of an experiment."@en ;
-                                  rdfs:label "Non Plasma-Treated Sample"@en .
-
-
-###  http://plasma-mds.org/ontology/PhysicalExperiment
-plasma-mds:PhysicalExperiment rdf:type owl:Class ;
-                              rdfs:subClassOf plasma-mds:ScientificExperiment ;
-                              rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/PhysicalExperiment
-
-A physical experiment is a scientific experiment which investigates cause-effect relations between known and unknown variables by manipulating the real-world (physical) domain."""@en ;
-                              rdfs:label "Physical Experiment"@en .
-
-
-###  http://plasma-mds.org/ontology/PlasmaSource
-plasma-mds:PlasmaSource rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-mds:Device ;
-                        rdfs:comment "A device that generates a plasma."@en ;
-                        rdfs:label "Plasma Source"@en .
-
-
-###  http://plasma-mds.org/ontology/PlasmaSourceType
-plasma-mds:PlasmaSourceType rdf:type owl:Class ;
-                            rdfs:label "Plasma Source Type"@en .
-
-
-###  http://plasma-mds.org/ontology/PlasmaStudy
-plasma-mds:PlasmaStudy rdf:type owl:Class ;
-                       owl:equivalentClass plasma-mds:ScientificExperiment ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:experimentUsesDevice ;
-                                         owl:someValuesFrom plasma-mds:DiagnosticDevice
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:experimentUsesMethod ;
-                                         owl:someValuesFrom plasma-mds:DiagnosticMethod
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:hasMedium ;
-                                         owl:someValuesFrom plasma-mds:Medium
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:hasOutput ;
-                                         owl:someValuesFrom bibo:Document
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:hasPlasmaSource ;
-                                         owl:someValuesFrom plasma-mds:PlasmaSource
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:hasTarget ;
-                                         owl:someValuesFrom plasma-mds:Target
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:hasResearchTopic ;
-                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass plasma-mds:ResearchTopic
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty plasma-mds:isConductedBy ;
-                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass <http://xmlns.com/foaf/0.1/#term_Agent>
-                                       ] ;
-                       rdfs:comment "A collection of experiments with the focus on investigating plasma behaviours/properties, effects of a plasma on a certain target, etc."@en ;
-                       rdfs:label "Plasma Study"@en .
-
-
-###  http://plasma-mds.org/ontology/PlasmaTreatedSample
-plasma-mds:PlasmaTreatedSample rdf:type owl:Class ;
-                               owl:equivalentClass plasma-mds:Target ;
-                               rdfs:subClassOf plasma-mds:Sample ;
-                               rdfs:comment "An entity, which a plasma acts on."@en ;
-                               rdfs:label "Plasma-Treated Sample"@en .
-
-
-###  http://plasma-mds.org/ontology/ResearchTopic
-plasma-mds:ResearchTopic rdf:type owl:Class ;
-                         rdfs:label "Research Topic"@en .
-
-
-###  http://plasma-mds.org/ontology/Sample
-plasma-mds:Sample rdf:type owl:Class ;
-                  rdfs:label "Sample"@en .
-
-
-###  http://plasma-mds.org/ontology/ScientificExperiment
-plasma-mds:ScientificExperiment rdf:type owl:Class ;
-                                rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ScientificExperiment
-
-A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance."""@en ;
-                                rdfs:label "Scientific Experiment"@en .
-
-
-###  http://plasma-mds.org/ontology/Target
-plasma-mds:Target rdf:type owl:Class ;
-                  rdfs:subClassOf plasma-mds:Sample ;
-                  rdfs:comment "A target is an entity, which a plasma acts on."@en ;
-                  rdfs:label "Target"@en .
+See: http://purl.obolibrary.org/obo/ERO_0000007"""@en ;
+                rdfs:label "Technique"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000835
 obo:OBI_0000835 rdf:type owl:Class ;
                 rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                rdfs:comment """See: http://purl.obolibrary.org/obo/OBI_0000835
+                rdfs:comment """A person or organization that has a manufacturer role.
 
-A person or organization that has a manufacturer role."""@en ;
+See: http://purl.obolibrary.org/obo/OBI_0000835"""@en ;
                 rdfs:label "Manufacturer"@en .
 
 
 ###  http://purl.org/ontology/bibo/AcademicArticle
 bibo:AcademicArticle rdf:type owl:Class ;
                      rdfs:subClassOf bibo:Article ;
-                     rdfs:comment """See: http://purl.org/ontology/bibo/AcademicArticle
+                     rdfs:comment """A scholarly academic article, typically published in a journal.
 
-A scholarly academic article, typically published in a journal."""@en ;
+See: http://purl.org/ontology/bibo/AcademicArticle"""@en ;
                      rdfs:label "Academic Article"@en .
 
 
 ###  http://purl.org/ontology/bibo/Article
 bibo:Article rdf:type owl:Class ;
              rdfs:subClassOf bibo:Document ;
-             rdfs:comment """See: http://purl.org/ontology/bibo/Article
+             rdfs:comment """A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a book or other publication, as a newspaper or magazine.
 
-A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a book or other publication, as a newspaper or magazine."""@en ;
+See: http://purl.org/ontology/bibo/Article"""@en ;
              rdfs:label "Article"@en .
 
 
 ###  http://purl.org/ontology/bibo/Document
 bibo:Document rdf:type owl:Class ;
-              rdfs:comment """See: http://purl.org/ontology/bibo/
+              owl:disjointWith plasma-o:DiagnosticMethod ;
+              rdfs:comment """A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information.
 
-A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information."""@en ;
+See: http://purl.org/ontology/bibo/"""@en ;
               rdfs:label "Document"@en .
 
 
 ###  http://purl.org/ontology/bibo/Thesis
 bibo:Thesis rdf:type owl:Class ;
             rdfs:subClassOf bibo:Document ;
-            rdfs:comment """See: http://purl.org/ontology/bibo/Thesis
+            rdfs:comment """A document created to summarize research findings associated with the completion of an academic degree.
 
-A document created to summarize research findings associated with the completion of an academic degree.""" ;
+See: http://purl.org/ontology/bibo/Thesis"""@en ;
             rdfs:label "Thesis"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Abstract
 vivo:Abstract rdf:type owl:Class ;
               rdfs:subClassOf bibo:Document ;
-              rdfs:comment """See: http://vivoweb.org/ontology/core#Abstract
+              rdfs:comment """An abstract that is published as a standalone document or in a journal of abstracts.
 
-An abstract that is published as a standalone document or in a journal of abstracts."""@en ;
+See: http://vivoweb.org/ontology/core#Abstract"""@en ;
               rdfs:label "Abstract"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Company
 vivo:Company rdf:type owl:Class ;
              rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Organization> ;
-             rdfs:comment """See: http://vivoweb.org/ontology/core#Company
+             rdfs:comment """from Wikipedia: \"A company is a form of business organization. It is an association or collection of individual real persons and/or other companies ... This collection, group or association of persons can be made to exist in law and then a company is itself considered a \"legal person\". The name company arose because, at least originally, it represented or was owned by more than one real or legal person.\"
 
-from Wikipedia: \"A company is a form of business organization. It is an association or collection of individual real persons and/or other companies ... This collection, group or association of persons can be made to exist in law and then a company is itself considered a \"legal person\". The name company arose because, at least originally, it represented or was owned by more than one real or legal person.\""""@en .
+See: http://vivoweb.org/ontology/core#Company"""@en .
 
 
 ###  http://vivoweb.org/ontology/core#ConferencePaper
 vivo:ConferencePaper rdf:type owl:Class ;
                      rdfs:subClassOf bibo:Article ;
-                     rdfs:comment """See: http://vivoweb.org/ontology/core#ConferencePaper
+                     rdfs:comment """A paper presented at a conference; optionally collected into a Proceedings or a special Journal issue
 
-A paper presented at a conference; optionally collected into a Proceedings or a special Journal issue""" ;
+See: http://vivoweb.org/ontology/core#ConferencePaper"""@en ;
                      rdfs:label "Conference Paper"@en .
 
 
 ###  http://vivoweb.org/ontology/core#ConferencePoster
 vivo:ConferencePoster rdf:type owl:Class ;
                       rdfs:subClassOf bibo:Document ;
-                      rdfs:comment """See: http://vivoweb.org/ontology/core#ConferencePoster
+                      rdfs:comment """The digital file (or physical equivalent), if available after the conference, vs. the act of attending/presenting: use ConferencePresentation for information about date/time/location/name of the event where the poster was presented.
 
-The digital file (or physical equivalent), if available after the conference, vs. the act of attending/presenting: use ConferencePresentation for information about date/time/location/name of the event where the poster was presented."""@en ;
+See: http://vivoweb.org/ontology/core#ConferencePoster"""@en ;
                       rdfs:label "Conference Poster"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Dataset
 vivo:Dataset rdf:type owl:Class ;
              rdfs:subClassOf bibo:Document ;
-             rdfs:comment "Dataset is a document consiting of a collection of digital resources obtained from scientific experiments."@en ;
+             rdfs:comment """Dataset is a document consiting of a collection of digital resources obtained from scientific experiments.
+
+See: http://vivoweb.org/ontology/core#Dataset"""@en ;
              rdfs:label "Dataset"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Hospital
 vivo:Hospital rdf:type owl:Class ;
               rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Organization> ;
-              rdfs:comment """See: http://vivoweb.org/ontology/core#Hospital
+              rdfs:comment """An institution that provides medical, surgical, psychiatric or nursing care.
 
-An institution that provides medical, surgical, psychiatric or nursing care."""@en ;
+See: http://vivoweb.org/ontology/core#Hospital"""@en ;
               rdfs:label "Hospital"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Institute
 vivo:Institute rdf:type owl:Class ;
                rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Organization> ;
-               rdfs:comment """See: http://vivoweb.org/ontology/core#Institute
+               rdfs:comment """An organization founded to pursue or promote certain research, educational or public policy interests or activities.
 
-An organization founded to pursue or promote certain research, educational or public policy interests or activities.""" ;
-               rdfs:label "Institute" .
+See: http://vivoweb.org/ontology/core#Institute"""@en ;
+               rdfs:label "Institute"@en .
 
 
 ###  http://vivoweb.org/ontology/core#Review
 vivo:Review rdf:type owl:Class ;
             rdfs:subClassOf bibo:Article ;
-            rdfs:comment """See: http://vivoweb.org/ontology/core#Review
+            rdfs:comment """An article reviewing one or more other information resources (a book, one or more other articles, movies, etc)
 
-An article reviewing one or more other information resources (a book, one or more other articles, movies, etc)"""@en ;
+See: http://vivoweb.org/ontology/core#Review"""@en ;
             rdfs:label "Review"@en .
 
 
@@ -896,28 +867,199 @@ Agents are things that do stuff."""@en ;
 ###  http://xmlns.com/foaf/0.1/#term_Group
 <http://xmlns.com/foaf/0.1/#term_Group> rdf:type owl:Class ;
                                         rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                        rdfs:comment """See: http://xmlns.com/foaf/0.1/#term_Group
+                                        rdfs:comment """A collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions).
 
-A collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions)."""@en ;
+See: http://xmlns.com/foaf/0.1/#term_Group"""@en ;
                                         rdfs:label "Group"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/#term_Organization
 <http://xmlns.com/foaf/0.1/#term_Organization> rdf:type owl:Class ;
                                                rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                               rdfs:comment """See: http://xmlns.com/foaf/0.1/#term_Organization
+                                               rdfs:comment """A kind of Agent corresponding to social instititutions such as companies, societies etc.
 
-A kind of Agent corresponding to social instititutions such as companies, societies etc."""@en ;
+See: http://xmlns.com/foaf/0.1/#term_Organization"""@en ;
                                                rdfs:label "Organization"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/#term_Person
 <http://xmlns.com/foaf/0.1/#term_Person> rdf:type owl:Class ;
                                          rdfs:subClassOf <http://xmlns.com/foaf/0.1/#term_Agent> ;
-                                         rdfs:comment """See: http://xmlns.com/foaf/0.1/#term_Person
+                                         rdfs:comment """An instance of a human being (Homo sapiens).
 
-An instance of a human being (Homo sapiens)."""@en ;
+See: http://xmlns.com/foaf/0.1/#term_Person"""@en ;
                                          rdfs:label "Person"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/AdjustedDevice
+plasma-o:AdjustedDevice rdf:type owl:Class ;
+                        rdfs:subClassOf plasma-o:Device ;
+                        rdfs:comment "A device that uses another device."@en ;
+                        rdfs:label "Adjusted Device"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/ApplicationField
+plasma-o:ApplicationField rdf:type owl:Class ;
+                          rdfs:comment "The application field is the typical application area in which a plasma source is used, like decontamination."@en ;
+                          rdfs:label "Application Field"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/ComputationalExperiment
+plasma-o:ComputationalExperiment rdf:type owl:Class ;
+                                 rdfs:subClassOf plasma-o:ScientificExperiment ;
+                                 rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ComputationalExperiment
+
+A computational experiment is a scientific experiment which investigates cause-effect relations between known and unknown (target) variables by manipulating the computational (non-physical) domain adequate to the real-world domain."""@en ;
+                                 rdfs:label "Computational Experiment"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Configuration
+plasma-o:Configuration rdf:type owl:Class ;
+                       rdfs:comment "A set of settings and parameters of a device or instrument."@en ;
+                       rdfs:label "Configuration"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Device
+plasma-o:Device rdf:type owl:Class ;
+                rdfs:label "Device"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/DeviceType
+plasma-o:DeviceType rdf:type owl:Class ;
+                    rdfs:label "Device Type"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/DiagnosticDevice
+plasma-o:DiagnosticDevice rdf:type owl:Class ;
+                          rdfs:subClassOf plasma-o:Device ;
+                          rdfs:comment "Devices used to measure and identify physical quantities."@en ;
+                          rdfs:label "Diagnostic Device"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/DiagnosticMethod
+plasma-o:DiagnosticMethod rdf:type owl:Class ;
+                          rdfs:subClassOf plasma-o:Method ;
+                          rdfs:comment """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
+Wikipedia: https://en.wikipedia.org/wiki/Plasma_diagnostics"""@en ;
+                          rdfs:label "Diagnostic Method"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/ExperimentalStep
+plasma-o:ExperimentalStep rdf:type owl:Class ;
+                          rdfs:label "Experimental Step"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Medium
+plasma-o:Medium rdf:type owl:Class ;
+                rdfs:comment "Gas, mixture of gases, or other substance, which is either (partially) ionized or otherwise activated by a source device."@en ;
+                rdfs:label "Medium"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Method
+plasma-o:Method rdf:type owl:Class ;
+                rdfs:label "Method"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/NonPlasmaTreatedSample
+plasma-o:NonPlasmaTreatedSample rdf:type owl:Class ;
+                                rdfs:subClassOf plasma-o:Sample ;
+                                rdfs:comment "Any entity that is a subject of an experiment."@en ;
+                                rdfs:label "Non Plasma-Treated Sample"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PhysicalExperiment
+plasma-o:PhysicalExperiment rdf:type owl:Class ;
+                            rdfs:subClassOf plasma-o:ScientificExperiment ;
+                            rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/PhysicalExperiment
+
+A physical experiment is a scientific experiment which investigates cause-effect relations between known and unknown variables by manipulating the real-world (physical) domain."""@en ;
+                            rdfs:label "Physical Experiment"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PlasmaSource
+plasma-o:PlasmaSource rdf:type owl:Class ;
+                      rdfs:subClassOf plasma-o:Device ;
+                      rdfs:comment "A device that generates a plasma."@en ;
+                      rdfs:label "Plasma Source"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PlasmaSourceType
+plasma-o:PlasmaSourceType rdf:type owl:Class ;
+                          rdfs:label "Plasma Source Type"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PlasmaStudy
+plasma-o:PlasmaStudy rdf:type owl:Class ;
+                     owl:equivalentClass plasma-o:ScientificExperiment ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:experimentUsesDevice ;
+                                       owl:someValuesFrom plasma-o:DiagnosticDevice
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:experimentUsesMethod ;
+                                       owl:someValuesFrom plasma-o:DiagnosticMethod
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:hasMedium ;
+                                       owl:someValuesFrom plasma-o:Medium
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:hasOutput ;
+                                       owl:someValuesFrom bibo:Document
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:hasPlasmaSource ;
+                                       owl:someValuesFrom plasma-o:PlasmaSource
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:hasTarget ;
+                                       owl:someValuesFrom plasma-o:Target
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:hasResearchTopic ;
+                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass plasma-o:ResearchTopic
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty plasma-o:isConductedBy ;
+                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <http://xmlns.com/foaf/0.1/#term_Agent>
+                                     ] ;
+                     rdfs:comment "A collection of experiments with the focus on investigating plasma behaviours/properties, effects of a plasma on a certain target, etc."@en ;
+                     rdfs:label "Plasma Study"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PlasmaTreatedSample
+plasma-o:PlasmaTreatedSample rdf:type owl:Class ;
+                             owl:equivalentClass plasma-o:Target ;
+                             rdfs:subClassOf plasma-o:Sample ;
+                             rdfs:comment "An entity, which a plasma acts on."@en ;
+                             rdfs:label "Plasma-Treated Sample"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/ResearchTopic
+plasma-o:ResearchTopic rdf:type owl:Class ;
+                       rdfs:label "Research Topic"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Sample
+plasma-o:Sample rdf:type owl:Class ;
+                rdfs:label "Sample"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/ScientificExperiment
+plasma-o:ScientificExperiment rdf:type owl:Class ;
+                              rdfs:comment """A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance.
+
+EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ScientificExperiment"""@en ;
+                              rdfs:label "Scientific Experiment"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/Target
+plasma-o:Target rdf:type owl:Class ;
+                rdfs:subClassOf plasma-o:Sample ;
+                rdfs:comment "A target is an entity, which a plasma acts on."@en ;
+                rdfs:label "Target"@en .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
