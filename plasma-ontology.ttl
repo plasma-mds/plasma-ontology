@@ -17,7 +17,8 @@
                                                                                <https://orcid.org/0000-0002-2762-293X> ,
                                                                                <https://orcid.org/0000-0002-4232-4543> ,
                                                                                <https://orcid.org/0000-0003-4025-1712> ,
-                                                                               "Ihda Chaerony Siffa, Robert Wagner, Laura Vilardell Scholten, Markus M. Becker" ;
+                                                                               <https://orcid.org/0000-0002-7047-2770> ,
+                                                                               "Ihda Chaerony Siffa, Robert Wagner, Laura Vilardell Scholten, Fabian Hoppe, Markus M. Becker" ;
                                             <http://purl.org/dc/terms/description> "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
                                             <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> ;
                                             <http://purl.org/dc/terms/title> "Plasma Ontology (Plasma-O)"@en ;
