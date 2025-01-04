@@ -8,8 +8,8 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix plsmo: <https://plasma-mds.org/ontology/plasma-o/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix plasma-o: <https://plasma-mds.org/ontology/plasma-o/> .
 @base <https://plasma-mds.org/ontology/plasma-o> .
 
 <https://plasma-mds.org/ontology/plasma-o> rdf:type owl:Ontology ;
@@ -23,7 +23,7 @@
                                             <http://purl.org/dc/terms/description> "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
                                             <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> ;
                                             <http://purl.org/dc/terms/title> "Plasma Ontology (Plasma-O)"@en ;
-                                            <http://purl.org/vocab/vann/preferredNamespacePrefix> "plasma-o" ;
+                                            <http://purl.org/vocab/vann/preferredNamespacePrefix> "plsmo" ;
                                             rdfs:comment "The plasma ontology (Plasma-O) supports the standardized documentation of research data in the field of plasma physics. In accordance with typical plasma processes and applications, the ontology contains terminologicial knowledge about plasma source, plasma medium, and plasma target. Furthermore, metadata for the respectively applied diagnostic and modelling/simulation methods are represented."@en ;
                                             rdfs:label "Plasma Ontology (Plasma-O)"@en ;
                                             owl:versionInfo "0.7.0" .
@@ -31,6 +31,16 @@
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000112
+obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
+                rdfs:label "oboExample"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "oboDefinition"@en .
+
 
 ###  http://purl.org/dc/terms/bibliographicCitation
 <http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
@@ -68,955 +78,955 @@
 #    Object Properties
 #################################################################
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0001
-plasma-o:PLASMA-O_R0001 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0002 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0019 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "addressedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "addressed in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0002
-plasma-o:PLASMA-O_R0002 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0019 ;
-                        rdfs:label "addresses"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "addresses"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0003
-plasma-o:PLASMA-O_R0003 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0037 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "affiliatedWith"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "affiliated with"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0004
-plasma-o:PLASMA-O_R0004 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0041 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0001 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "applicationFieldOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "application field of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0005
-plasma-o:PLASMA-O_R0005 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0006 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "conductedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "conducted by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0006
-plasma-o:PLASMA-O_R0006 rdf:type owl:ObjectProperty ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "conducts"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "conducts"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0007
-plasma-o:PLASMA-O_R0007 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0042 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0002 ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "configurationOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "configuration of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0008
-plasma-o:PLASMA-O_R0008 rdf:type owl:ObjectProperty ;
-                        rdfs:label "consistsOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "consists of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0009
-plasma-o:PLASMA-O_R0009 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0008 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0065 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0026 ;
-                        rdfs:range plasma-o:PLASMA-O_C0026 ;
-                        rdfs:label "consistsOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] consists of [Description]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0010
-plasma-o:PLASMA-O_R0010 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0008 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0064 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0026 ;
-                        rdfs:range plasma-o:PLASMA-O_C0034 ;
-                        rdfs:label "consistsOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] consists of [Descriptor]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0011
-plasma-o:PLASMA-O_R0011 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0008 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0066 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "consistsOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] consists of [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0012
-plasma-o:PLASMA-O_R0012 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0008 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0067 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "consistsOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] consists of [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0013
-plasma-o:PLASMA-O_R0013 rdf:type owl:ObjectProperty ;
-                        rdfs:label "describedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "described in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0014
-plasma-o:PLASMA-O_R0014 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0013 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0018 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "describedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] described in [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0015
-plasma-o:PLASMA-O_R0015 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0013 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0019 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "describedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] described in [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0016
-plasma-o:PLASMA-O_R0016 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0013 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0020 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "describedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] described in [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0017
-plasma-o:PLASMA-O_R0017 rdf:type owl:ObjectProperty ;
-                        rdfs:label "describes"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "describes"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0018
-plasma-o:PLASMA-O_R0018 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0017 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "describesResearchActivity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0019
-plasma-o:PLASMA-O_R0019 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0017 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "describesMaterialEntity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0020
-plasma-o:PLASMA-O_R0020 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0017 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "describesMethod"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0021
-plasma-o:PLASMA-O_R0021 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0043 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0026 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "descriptionOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "description of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0022
-plasma-o:PLASMA-O_R0022 rdf:type owl:ObjectProperty ;
-                        rdfs:label "developedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "developed by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0023
-plasma-o:PLASMA-O_R0023 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0022 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0026 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "developedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] developed by [Agent]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0024
-plasma-o:PLASMA-O_R0024 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0022 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0027 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "developedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] developed by [Agent]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0025
-plasma-o:PLASMA-O_R0025 rdf:type owl:ObjectProperty ;
-                        rdfs:label "develops"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "develops"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0026
-plasma-o:PLASMA-O_R0026 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0025 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "develops"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] develops [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0027
-plasma-o:PLASMA-O_R0027 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0025 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "develops"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] develops [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0028
-plasma-o:PLASMA-O_R0028 rdf:type owl:ObjectProperty ;
-                        rdfs:comment "Depending on the context, this relation is similar to \"investigated using\"."@en ;
-                        rdfs:label "diagnosedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "diagnosed using"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0029
-plasma-o:PLASMA-O_R0029 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0028 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0097 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "diagnosedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] diagnosed using [Device]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0030
-plasma-o:PLASMA-O_R0030 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0028 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0098 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "diagnosedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] diagnosed using [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0031
-plasma-o:PLASMA-O_R0031 rdf:type owl:ObjectProperty ;
-                        rdfs:label "experiencedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "experienced in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0032
-plasma-o:PLASMA-O_R0032 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0031 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0044 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "experiencedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] experienced in [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0033
-plasma-o:PLASMA-O_R0033 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0031 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0045 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "experiencedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] experienced in [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0034
-plasma-o:PLASMA-O_R0034 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0035 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0029 ;
-                        rdfs:range plasma-o:PLASMA-O_C0005 ;
-                        rdfs:label "generatedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "generated by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0035
-plasma-o:PLASMA-O_R0035 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0005 ;
-                        rdfs:range plasma-o:PLASMA-O_C0029 ;
-                        rdfs:label "generates"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "generates"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0036
-plasma-o:PLASMA-O_R0036 rdf:type owl:ObjectProperty ;
-                        rdfs:label "has"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "has"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0037
-plasma-o:PLASMA-O_R0037 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain foaf:Agent ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "hasAffiliation"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] has affiliation [Agent]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0038
-plasma-o:PLASMA-O_R0038 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0061 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0011 ;
-                        rdfs:label "hasMedium"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Medium]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0039
-plasma-o:PLASMA-O_R0039 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0068 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0005 ;
-                        rdfs:label "hasPlasmaSource"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Plasma Source]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0040
-plasma-o:PLASMA-O_R0040 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0083 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0010 ;
-                        rdfs:label "hasTarget"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Target]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0041
-plasma-o:PLASMA-O_R0041 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0001 ;
-                        rdfs:label "hasApplicationField"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Application Field]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0042
-plasma-o:PLASMA-O_R0042 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range plasma-o:PLASMA-O_C0002 ;
-                        rdfs:label "hasConfiguration"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Configuration]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0043
-plasma-o:PLASMA-O_R0043 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0026 ;
-                        rdfs:label "hasDescription"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Description]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0044
-plasma-o:PLASMA-O_R0044 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "hasExperiencedAgent"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has experienced [Agent]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0045
-plasma-o:PLASMA-O_R0045 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range foaf:Agent ;
-                        rdfs:label "hasExperiencedAgent"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] has experienced [Agent]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0046
-plasma-o:PLASMA-O_R0046 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0062 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "hasOutput"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has output [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0047
-plasma-o:PLASMA-O_R0047 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0069 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0018 ;
-                        rdfs:label "hasProperty"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Property]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0048
-plasma-o:PLASMA-O_R0048 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0079 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range plasma-o:PLASMA-O_C0025 ;
-                        rdfs:label "hasSpecification"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Specification]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0049
-plasma-o:PLASMA-O_R0049 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0084 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0020 ;
-                        rdfs:label "hasTopic"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Research Topic]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0050
-plasma-o:PLASMA-O_R0050 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0087 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range plasma-o:PLASMA-O_C0006 ;
-                        rdfs:label "hasDeviceType"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Device Type]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0051
-plasma-o:PLASMA-O_R0051 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0036 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0088 ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range qudt:Unit ;
-                        rdfs:label "hasUnit"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] has [Unit]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0052
-plasma-o:PLASMA-O_R0052 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0080 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0015 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "investigatedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "investigated in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0053
-plasma-o:PLASMA-O_R0053 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0054 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "involvedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "involved in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0054
-plasma-o:PLASMA-O_R0054 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "involves"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "involves"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0055
-plasma-o:PLASMA-O_R0055 rdf:type owl:ObjectProperty ;
-                        rdfs:label "measuredUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "measured using"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0056
-plasma-o:PLASMA-O_R0056 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0055 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0060 ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "measuredUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] measured using [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0057
-plasma-o:PLASMA-O_R0057 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0055 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0059 ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "measuredUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] measured using [Device]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0058
-plasma-o:PLASMA-O_R0058 rdf:type owl:ObjectProperty ;
-                        rdfs:label "measures"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "measures"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0059
-plasma-o:PLASMA-O_R0059 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0058 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range qudt:Quantity ;
-                        rdfs:label "measures"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] to measure [Quantitative Descriptor]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0060
-plasma-o:PLASMA-O_R0060 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0058 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range qudt:Quantity ;
-                        rdfs:label "measures"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] to measure [Quantitative Descriptor]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0061
-plasma-o:PLASMA-O_R0061 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0011 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "mediumOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "medium of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0062
-plasma-o:PLASMA-O_R0062 rdf:type owl:ObjectProperty ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "outputOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "output of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0063
-plasma-o:PLASMA-O_R0063 rdf:type owl:ObjectProperty ;
-                        rdfs:label "partOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "part of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0064
-plasma-o:PLASMA-O_R0064 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0063 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0034 ;
-                        rdfs:range plasma-o:PLASMA-O_C0026 ;
-                        rdfs:label "partOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Descriptor] part of [Description]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0065
-plasma-o:PLASMA-O_R0065 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0063 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0026 ;
-                        rdfs:range plasma-o:PLASMA-O_C0026 ;
-                        rdfs:label "partOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] part of [Description]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0066
-plasma-o:PLASMA-O_R0066 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0063 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "partOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] part of [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0067
-plasma-o:PLASMA-O_R0067 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0063 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "partOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] part of [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0068
-plasma-o:PLASMA-O_R0068 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0005 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "plasmaSourceOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "plasma source of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0069
-plasma-o:PLASMA-O_R0069 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0018 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "propertyOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "property of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0070
-plasma-o:PLASMA-O_R0070 rdf:type owl:ObjectProperty ;
-                        rdfs:label "referencedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "referenced by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0071
-plasma-o:PLASMA-O_R0071 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0070 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0074 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "referencedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] referenced by [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0072
-plasma-o:PLASMA-O_R0072 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0070 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0075 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "referencedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] referenced by [Document]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0073
-plasma-o:PLASMA-O_R0073 rdf:type owl:ObjectProperty ;
-                        rdfs:label "references"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "references"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0074
-plasma-o:PLASMA-O_R0074 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0073 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "references"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] references [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0075
-plasma-o:PLASMA-O_R0075 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0073 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "references"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] references [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0076
-plasma-o:PLASMA-O_R0076 rdf:type owl:ObjectProperty ;
-                        rdfs:label "simulatedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "simulated using"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0077
-plasma-o:PLASMA-O_R0077 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0076 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0033 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "simulatedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Simulated Entity] simulated using [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0078
-plasma-o:PLASMA-O_R0078 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0076 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0033 ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "simulatedUsing"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Simulated Entity] simulated using [Method]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0079
-plasma-o:PLASMA-O_R0079 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0025 ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "specificationOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "specification of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0080
-plasma-o:PLASMA-O_R0080 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0015 ;
-                        rdfs:label "investigates"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "investigates"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0081
-plasma-o:PLASMA-O_R0081 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0082 ;
-                        rdfs:domain bibo:Document ;
-                        rdfs:range vivo:Dataset ;
-                        rdfs:label "supplementedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "supplemented by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0082
-plasma-o:PLASMA-O_R0082 rdf:type owl:ObjectProperty ;
-                        rdfs:domain vivo:Dataset ;
-                        rdfs:range bibo:Document ;
-                        rdfs:label "supplements"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "supplements"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0083
-plasma-o:PLASMA-O_R0083 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0010 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "targetOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "target of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0084
-plasma-o:PLASMA-O_R0084 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0020 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "topicOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "topic of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0085
-plasma-o:PLASMA-O_R0085 rdf:type owl:ObjectProperty ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0086 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0005 ;
-                        rdfs:label "treatedBy"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "treated by"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0086
-plasma-o:PLASMA-O_R0086 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0005 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "treats"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "treats"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0087
-plasma-o:PLASMA-O_R0087 rdf:type owl:ObjectProperty ;
-                        rdfs:domain plasma-o:PLASMA-O_C0006 ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "typeOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "type of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0088
-plasma-o:PLASMA-O_R0088 rdf:type owl:ObjectProperty ;
-                        rdfs:domain qudt:Unit ;
-                        rdfs:range qudt:Quantity ;
-                        rdfs:label "unitOf"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "unit of"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0089
-plasma-o:PLASMA-O_R0089 rdf:type owl:ObjectProperty ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "used in"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0090
-plasma-o:PLASMA-O_R0090 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0100 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0002 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Configuration] used in [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0091
-plasma-o:PLASMA-O_R0091 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0101 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] used in [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0092
-plasma-o:PLASMA-O_R0092 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0102 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] used in [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0093
-plasma-o:PLASMA-O_R0093 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0103 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] used in [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0094
-plasma-o:PLASMA-O_R0094 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0104 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0011 ;
-                        rdfs:range plasma-o:PLASMA-O_C0005 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Medium] used in [Plasma Source]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0095
-plasma-o:PLASMA-O_R0095 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0089 ;
-                        owl:inverseOf plasma-o:PLASMA-O_R0105 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range plasma-o:PLASMA-O_C0030 ;
-                        rdfs:label "usedIn"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] used in [Research Activity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0096
-plasma-o:PLASMA-O_R0096 rdf:type owl:ObjectProperty ;
-                        rdfs:label "usedToDiagnose"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "used to diagnose"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0097
-plasma-o:PLASMA-O_R0097 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0096 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0003 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "usedToDiagnose"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] to diagnose [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0098
-plasma-o:PLASMA-O_R0098 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0096 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0012 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "usedToDiagnose"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] to diagnose [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0099
-plasma-o:PLASMA-O_R0099 rdf:type owl:ObjectProperty ;
-                        rdfs:label "uses"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "uses"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0100
-plasma-o:PLASMA-O_R0100 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0002 ;
-                        rdfs:label "usesConfiguration"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Configuration]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0101
-plasma-o:PLASMA-O_R0101 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0003 ;
-                        rdfs:label "usesDevice"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Device]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0102
-plasma-o:PLASMA-O_R0102 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "usesMaterialEntity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0103
-plasma-o:PLASMA-O_R0103 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0027 ;
-                        rdfs:range plasma-o:PLASMA-O_C0027 ;
-                        rdfs:label "usesMaterialEntity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] uses [Material Entity]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0104
-plasma-o:PLASMA-O_R0104 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0005 ;
-                        rdfs:range plasma-o:PLASMA-O_C0011 ;
-                        rdfs:label "usesMedium"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Plasma Source] uses [Medium]"@en .
-
-
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_R0105
-plasma-o:PLASMA-O_R0105 rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf plasma-o:PLASMA-O_R0099 ;
-                        rdfs:domain plasma-o:PLASMA-O_C0030 ;
-                        rdfs:range plasma-o:PLASMA-O_C0012 ;
-                        rdfs:label "usesMethod"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Method]"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0001
+plsmo:PLSMO_R0001 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0002 ;
+                  rdfs:domain plsmo:PLSMO_C0019 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "addressedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "addressed in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0002
+plsmo:PLSMO_R0002 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0019 ;
+                  rdfs:label "addresses"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "addresses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0003
+plsmo:PLSMO_R0003 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0037 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "affiliatedWith"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "affiliated with"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0004
+plsmo:PLSMO_R0004 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0041 ;
+                  rdfs:domain plsmo:PLSMO_C0001 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "applicationFieldOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "application field of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0005
+plsmo:PLSMO_R0005 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0006 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "conductedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "conducted by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0006
+plsmo:PLSMO_R0006 rdf:type owl:ObjectProperty ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "conducts"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "conducts"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0007
+plsmo:PLSMO_R0007 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0042 ;
+                  rdfs:domain plsmo:PLSMO_C0002 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "configurationOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "configuration of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0008
+plsmo:PLSMO_R0008 rdf:type owl:ObjectProperty ;
+                  rdfs:label "consistsOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "consists of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0009
+plsmo:PLSMO_R0009 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0008 ;
+                  owl:inverseOf plsmo:PLSMO_R0065 ;
+                  rdfs:domain plsmo:PLSMO_C0026 ;
+                  rdfs:range plsmo:PLSMO_C0026 ;
+                  rdfs:label "consistsOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] consists of [Description]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0010
+plsmo:PLSMO_R0010 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0008 ;
+                  owl:inverseOf plsmo:PLSMO_R0064 ;
+                  rdfs:domain plsmo:PLSMO_C0026 ;
+                  rdfs:range plsmo:PLSMO_C0034 ;
+                  rdfs:label "consistsOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] consists of [Descriptor]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0011
+plsmo:PLSMO_R0011 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0008 ;
+                  owl:inverseOf plsmo:PLSMO_R0066 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "consistsOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] consists of [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0012
+plsmo:PLSMO_R0012 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0008 ;
+                  owl:inverseOf plsmo:PLSMO_R0067 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "consistsOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] consists of [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0013
+plsmo:PLSMO_R0013 rdf:type owl:ObjectProperty ;
+                  rdfs:label "describedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "described in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0014
+plsmo:PLSMO_R0014 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0013 ;
+                  owl:inverseOf plsmo:PLSMO_R0018 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "describedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] described in [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0015
+plsmo:PLSMO_R0015 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0013 ;
+                  owl:inverseOf plsmo:PLSMO_R0019 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "describedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] described in [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0016
+plsmo:PLSMO_R0016 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0013 ;
+                  owl:inverseOf plsmo:PLSMO_R0020 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "describedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] described in [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0017
+plsmo:PLSMO_R0017 rdf:type owl:ObjectProperty ;
+                  rdfs:label "describes"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "describes"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0018
+plsmo:PLSMO_R0018 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0017 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "describesResearchActivity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0019
+plsmo:PLSMO_R0019 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0017 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "describesMaterialEntity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0020
+plsmo:PLSMO_R0020 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0017 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "describesMethod"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] describes [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0021
+plsmo:PLSMO_R0021 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0043 ;
+                  rdfs:domain plsmo:PLSMO_C0026 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "descriptionOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "description of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0022
+plsmo:PLSMO_R0022 rdf:type owl:ObjectProperty ;
+                  rdfs:label "developedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "developed by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0023
+plsmo:PLSMO_R0023 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0022 ;
+                  owl:inverseOf plsmo:PLSMO_R0026 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "developedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] developed by [Agent]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0024
+plsmo:PLSMO_R0024 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0022 ;
+                  owl:inverseOf plsmo:PLSMO_R0027 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "developedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] developed by [Agent]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0025
+plsmo:PLSMO_R0025 rdf:type owl:ObjectProperty ;
+                  rdfs:label "develops"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "develops"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0026
+plsmo:PLSMO_R0026 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0025 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "develops"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] develops [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0027
+plsmo:PLSMO_R0027 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0025 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "develops"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] develops [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0028
+plsmo:PLSMO_R0028 rdf:type owl:ObjectProperty ;
+                  rdfs:comment "Depending on the context, this relation is similar to \"investigated using\"."@en ;
+                  rdfs:label "diagnosedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "diagnosed using"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0029
+plsmo:PLSMO_R0029 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0028 ;
+                  owl:inverseOf plsmo:PLSMO_R0097 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "diagnosedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] diagnosed using [Device]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0030
+plsmo:PLSMO_R0030 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0028 ;
+                  owl:inverseOf plsmo:PLSMO_R0098 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "diagnosedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] diagnosed using [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0031
+plsmo:PLSMO_R0031 rdf:type owl:ObjectProperty ;
+                  rdfs:label "experiencedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "experienced in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0032
+plsmo:PLSMO_R0032 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0031 ;
+                  owl:inverseOf plsmo:PLSMO_R0044 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "experiencedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] experienced in [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0033
+plsmo:PLSMO_R0033 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0031 ;
+                  owl:inverseOf plsmo:PLSMO_R0045 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "experiencedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] experienced in [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0034
+plsmo:PLSMO_R0034 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0035 ;
+                  rdfs:domain plsmo:PLSMO_C0029 ;
+                  rdfs:range plsmo:PLSMO_C0005 ;
+                  rdfs:label "generatedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "generated by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0035
+plsmo:PLSMO_R0035 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0005 ;
+                  rdfs:range plsmo:PLSMO_C0029 ;
+                  rdfs:label "generates"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "generates"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0036
+plsmo:PLSMO_R0036 rdf:type owl:ObjectProperty ;
+                  rdfs:label "has"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "has"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0037
+plsmo:PLSMO_R0037 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain foaf:Agent ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "hasAffiliation"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Agent] has affiliation [Agent]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0038
+plsmo:PLSMO_R0038 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0061 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0011 ;
+                  rdfs:label "hasMedium"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Medium]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0039
+plsmo:PLSMO_R0039 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0068 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0005 ;
+                  rdfs:label "hasPlasmaSource"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Plasma Source]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0040
+plsmo:PLSMO_R0040 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0083 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0010 ;
+                  rdfs:label "hasTarget"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Target]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0041
+plsmo:PLSMO_R0041 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0001 ;
+                  rdfs:label "hasApplicationField"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Application Field]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0042
+plsmo:PLSMO_R0042 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0002 ;
+                  rdfs:label "hasConfiguration"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Configuration]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0043
+plsmo:PLSMO_R0043 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0026 ;
+                  rdfs:label "hasDescription"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Description]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0044
+plsmo:PLSMO_R0044 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "hasExperiencedAgent"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has experienced [Agent]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0045
+plsmo:PLSMO_R0045 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range foaf:Agent ;
+                  rdfs:label "hasExperiencedAgent"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] has experienced [Agent]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0046
+plsmo:PLSMO_R0046 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0062 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "hasOutput"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has output [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0047
+plsmo:PLSMO_R0047 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0069 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0018 ;
+                  rdfs:label "hasProperty"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] has [Property]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0048
+plsmo:PLSMO_R0048 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0079 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0025 ;
+                  rdfs:label "hasSpecification"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Specification]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0049
+plsmo:PLSMO_R0049 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0084 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0020 ;
+                  rdfs:label "hasTopic"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] has [Research Topic]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0050
+plsmo:PLSMO_R0050 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0087 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0006 ;
+                  rdfs:label "hasDeviceType"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] has [Device Type]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0051
+plsmo:PLSMO_R0051 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0036 ;
+                  owl:inverseOf plsmo:PLSMO_R0088 ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range qudt:Unit ;
+                  rdfs:label "hasUnit"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] has [Unit]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0052
+plsmo:PLSMO_R0052 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0080 ;
+                  rdfs:domain plsmo:PLSMO_C0015 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "investigatedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "investigated in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0053
+plsmo:PLSMO_R0053 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0054 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "involvedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "involved in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0054
+plsmo:PLSMO_R0054 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "involves"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "involves"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0055
+plsmo:PLSMO_R0055 rdf:type owl:ObjectProperty ;
+                  rdfs:label "measuredUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "measured using"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0056
+plsmo:PLSMO_R0056 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0055 ;
+                  owl:inverseOf plsmo:PLSMO_R0060 ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "measuredUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] measured using [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0057
+plsmo:PLSMO_R0057 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0055 ;
+                  owl:inverseOf plsmo:PLSMO_R0059 ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "measuredUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Quantitative Descriptor] measured using [Device]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0058
+plsmo:PLSMO_R0058 rdf:type owl:ObjectProperty ;
+                  rdfs:label "measures"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "measures"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0059
+plsmo:PLSMO_R0059 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0058 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range qudt:Quantity ;
+                  rdfs:label "measures"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] to measure [Quantitative Descriptor]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0060
+plsmo:PLSMO_R0060 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0058 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range qudt:Quantity ;
+                  rdfs:label "measures"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] to measure [Quantitative Descriptor]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0061
+plsmo:PLSMO_R0061 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0011 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "mediumOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "medium of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0062
+plsmo:PLSMO_R0062 rdf:type owl:ObjectProperty ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "outputOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "output of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0063
+plsmo:PLSMO_R0063 rdf:type owl:ObjectProperty ;
+                  rdfs:label "partOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "part of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0064
+plsmo:PLSMO_R0064 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0063 ;
+                  rdfs:domain plsmo:PLSMO_C0034 ;
+                  rdfs:range plsmo:PLSMO_C0026 ;
+                  rdfs:label "partOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Descriptor] part of [Description]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0065
+plsmo:PLSMO_R0065 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0063 ;
+                  rdfs:domain plsmo:PLSMO_C0026 ;
+                  rdfs:range plsmo:PLSMO_C0026 ;
+                  rdfs:label "partOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Description] part of [Description]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0066
+plsmo:PLSMO_R0066 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0063 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "partOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] part of [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0067
+plsmo:PLSMO_R0067 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0063 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "partOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] part of [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0068
+plsmo:PLSMO_R0068 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0005 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "plasmaSourceOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "plasma source of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0069
+plsmo:PLSMO_R0069 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0018 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "propertyOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "property of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0070
+plsmo:PLSMO_R0070 rdf:type owl:ObjectProperty ;
+                  rdfs:label "referencedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "referenced by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0071
+plsmo:PLSMO_R0071 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0070 ;
+                  owl:inverseOf plsmo:PLSMO_R0074 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "referencedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] referenced by [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0072
+plsmo:PLSMO_R0072 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0070 ;
+                  owl:inverseOf plsmo:PLSMO_R0075 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "referencedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] referenced by [Document]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0073
+plsmo:PLSMO_R0073 rdf:type owl:ObjectProperty ;
+                  rdfs:label "references"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "references"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0074
+plsmo:PLSMO_R0074 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0073 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "references"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] references [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0075
+plsmo:PLSMO_R0075 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0073 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "references"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Document] references [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0076
+plsmo:PLSMO_R0076 rdf:type owl:ObjectProperty ;
+                  rdfs:label "simulatedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "simulated using"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0077
+plsmo:PLSMO_R0077 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0076 ;
+                  rdfs:domain plsmo:PLSMO_C0033 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "simulatedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Simulated Entity] simulated using [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0078
+plsmo:PLSMO_R0078 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0076 ;
+                  rdfs:domain plsmo:PLSMO_C0033 ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "simulatedUsing"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Simulated Entity] simulated using [Method]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0079
+plsmo:PLSMO_R0079 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0025 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "specificationOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "specification of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0080
+plsmo:PLSMO_R0080 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0015 ;
+                  rdfs:label "investigates"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "investigates"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0081
+plsmo:PLSMO_R0081 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0082 ;
+                  rdfs:domain bibo:Document ;
+                  rdfs:range vivo:Dataset ;
+                  rdfs:label "supplementedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "supplemented by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0082
+plsmo:PLSMO_R0082 rdf:type owl:ObjectProperty ;
+                  rdfs:domain vivo:Dataset ;
+                  rdfs:range bibo:Document ;
+                  rdfs:label "supplements"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "supplements"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0083
+plsmo:PLSMO_R0083 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0010 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "targetOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "target of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0084
+plsmo:PLSMO_R0084 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0020 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "topicOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "topic of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0085
+plsmo:PLSMO_R0085 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0086 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0005 ;
+                  rdfs:label "treatedBy"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "treated by"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0086
+plsmo:PLSMO_R0086 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0005 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "treats"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "treats"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0087
+plsmo:PLSMO_R0087 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0006 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "typeOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "type of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0088
+plsmo:PLSMO_R0088 rdf:type owl:ObjectProperty ;
+                  rdfs:domain qudt:Unit ;
+                  rdfs:range qudt:Quantity ;
+                  rdfs:label "unitOf"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "unit of"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0089
+plsmo:PLSMO_R0089 rdf:type owl:ObjectProperty ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "used in"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0090
+plsmo:PLSMO_R0090 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0100 ;
+                  rdfs:domain plsmo:PLSMO_C0002 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Configuration] used in [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0091
+plsmo:PLSMO_R0091 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0101 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] used in [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0092
+plsmo:PLSMO_R0092 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0102 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] used in [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0093
+plsmo:PLSMO_R0093 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0103 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] used in [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0094
+plsmo:PLSMO_R0094 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0104 ;
+                  rdfs:domain plsmo:PLSMO_C0011 ;
+                  rdfs:range plsmo:PLSMO_C0005 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Medium] used in [Plasma Source]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0095
+plsmo:PLSMO_R0095 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0089 ;
+                  owl:inverseOf plsmo:PLSMO_R0105 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range plsmo:PLSMO_C0030 ;
+                  rdfs:label "usedIn"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] used in [Research Activity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0096
+plsmo:PLSMO_R0096 rdf:type owl:ObjectProperty ;
+                  rdfs:label "usedToDiagnose"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "used to diagnose"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0097
+plsmo:PLSMO_R0097 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0096 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "usedToDiagnose"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Device] to diagnose [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0098
+plsmo:PLSMO_R0098 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0096 ;
+                  rdfs:domain plsmo:PLSMO_C0012 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "usedToDiagnose"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Method] to diagnose [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0099
+plsmo:PLSMO_R0099 rdf:type owl:ObjectProperty ;
+                  rdfs:label "uses"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "uses"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0100
+plsmo:PLSMO_R0100 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0002 ;
+                  rdfs:label "usesConfiguration"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Configuration]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0101
+plsmo:PLSMO_R0101 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "usesDevice"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Device]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0102
+plsmo:PLSMO_R0102 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "usesMaterialEntity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0103
+plsmo:PLSMO_R0103 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0027 ;
+                  rdfs:range plsmo:PLSMO_C0027 ;
+                  rdfs:label "usesMaterialEntity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Material Entity] uses [Material Entity]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0104
+plsmo:PLSMO_R0104 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0005 ;
+                  rdfs:range plsmo:PLSMO_C0011 ;
+                  rdfs:label "usesMedium"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Plasma Source] uses [Medium]"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0105
+plsmo:PLSMO_R0105 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf plsmo:PLSMO_R0099 ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0012 ;
+                  rdfs:label "usesMethod"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "[Research Activity] uses [Method]"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_A0001
-plasma-o:PLASMA-O_A0001 rdf:type owl:DatatypeProperty ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range xsd:float ;
-                        rdfs:comment "[Quantity] has value [xsd:float]"@en ;
-                        rdfs:label "hasValue"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "has Value"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_A0001
+plsmo:PLSMO_A0001 rdf:type owl:DatatypeProperty ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "[Quantity] has value [xsd:float]"@en ;
+                  rdfs:label "hasValue"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "has Value"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_A0002
-plasma-o:PLASMA-O_A0002 rdf:type owl:DatatypeProperty ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range xsd:float ;
-                        rdfs:comment "[Quantity] has maximum value [xsd:float]"@en ;
-                        rdfs:label "hasMaximumValue"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "has maximum value"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_A0002
+plsmo:PLSMO_A0002 rdf:type owl:DatatypeProperty ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "[Quantity] has maximum value [xsd:float]"@en ;
+                  rdfs:label "hasMaximumValue"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "has maximum value"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_A0003
-plasma-o:PLASMA-O_A0003 rdf:type owl:DatatypeProperty ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range xsd:float ;
-                        rdfs:comment "[Quantity] has minimum value [xsd:float]"@en ;
-                        rdfs:label "hasMinimumValue"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "has minimum value"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_A0003
+plsmo:PLSMO_A0003 rdf:type owl:DatatypeProperty ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "[Quantity] has minimum value [xsd:float]"@en ;
+                  rdfs:label "hasMinimumValue"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "has minimum value"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_A0004
-plasma-o:PLASMA-O_A0004 rdf:type owl:DatatypeProperty ;
-                        rdfs:domain qudt:Quantity ;
-                        rdfs:range xsd:float ;
-                        rdfs:comment "[Quantity] has approximate value [xsd:float]"@en ;
-                        rdfs:label "hasApproxValue"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "hasApproxValue"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_A0004
+plsmo:PLSMO_A0004 rdf:type owl:DatatypeProperty ;
+                  rdfs:domain qudt:Quantity ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "[Quantity] has approximate value [xsd:float]"@en ;
+                  rdfs:label "hasApproxValue"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "hasApproxValue"@en .
 
 
 #################################################################
@@ -1025,8 +1035,8 @@ plasma-o:PLASMA-O_A0004 rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.obolibrary.org/obo/ERO_0000004
 obo:ERO_0000004 rdf:type owl:Class ;
-                owl:equivalentClass plasma-o:PLASMA-O_C0003 ;
-                rdfs:subClassOf plasma-o:PLASMA-O_C0028 ;
+                owl:equivalentClass plsmo:PLSMO_C0003 ;
+                rdfs:subClassOf plsmo:PLSMO_C0028 ;
                 rdfs:comment "Material entity that is designed to have a function and play a role in scientific investigation."@en ;
                 rdfs:label "Instrument"@en ;
                 <http://www.w3.org/2004/02/skos/core#altLabel> "Instrument"@en .
@@ -1034,7 +1044,7 @@ obo:ERO_0000004 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/ERO_0000007
 obo:ERO_0000007 rdf:type owl:Class ;
-                owl:equivalentClass plasma-o:PLASMA-O_C0012 ;
+                owl:equivalentClass plsmo:PLSMO_C0012 ;
                 rdfs:comment """A technique is a planned process used to accomplish a specific activity or task.
 
 See: http://purl.obolibrary.org/obo/ERO_0000007"""@en ;
@@ -1074,7 +1084,7 @@ See: http://purl.org/ontology/bibo/Article"""@en ;
 
 ###  http://purl.org/ontology/bibo/Document
 bibo:Document rdf:type owl:Class ;
-              owl:disjointWith plasma-o:PLASMA-O_C0013 ;
+              owl:disjointWith plsmo:PLSMO_C0013 ;
               rdfs:comment """A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information.
 
 See: http://purl.org/ontology/bibo/"""@en ;
@@ -1094,7 +1104,16 @@ See: http://purl.org/ontology/bibo/Thesis"""@en ;
 
 ###  http://qudt.org/schema/qudt/Quantity
 qudt:Quantity rdf:type owl:Class ;
-              rdfs:subClassOf plasma-o:PLASMA-O_C0034 ;
+              rdfs:subClassOf plsmo:PLSMO_C0034 ;
+              obo:IAO_0000115 """A quantity is the measurement of an observable property of a particular object, event, or physical system. A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant.
+
+In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.
+
+Many quantity kinds are related to each other by various physical laws, and as a result, the associated units of some quantity kinds can be expressed as products (or ratios) of powers of other quantity kinds (e.g., momentum is mass times velocity and velocity is defined as distance divided by time). In this way, some quantities can be calculated from other measured quantities using their associations to the quantity kinds in these expressions. These quantity kind relationships are also discussed in dimensional analysis. Those that cannot be so expressed can be regarded as \"fundamental\" in this sense.
+
+A quantity is distinguished from a \"quantity kind\" in that the former carries a value and the latter is a type specifier.
+
+See: https://qudt.org/schema/qudt/Quantity"""@en ;
               rdfs:comment """A quantity is the measurement of an observable property of a particular object, event, or physical system. A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant.
 
 In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.
@@ -1111,6 +1130,9 @@ See: https://qudt.org/schema/qudt/Quantity"""@en ,
 
 ###  http://qudt.org/schema/qudt/Unit
 qudt:Unit rdf:type owl:Class ;
+          obo:IAO_0000115 """A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U.
+
+See: https://qudt.org/schema/qudt/Unit"""@en ;
           rdfs:comment """A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U.
 
 See: https://qudt.org/schema/qudt/Unit"""@en ;
@@ -1161,7 +1183,7 @@ See: http://vivoweb.org/ontology/core#ConferencePoster"""@en ;
 ###  http://vivoweb.org/ontology/core#Dataset
 vivo:Dataset rdf:type owl:Class ;
              rdfs:subClassOf bibo:Document ;
-             rdfs:comment """Dataset is a document consiting of a collection of digital resources obtained from scientific experiments.
+             rdfs:comment """Dataset is a document consisting of a collection of digital resources obtained from scientific experiments.
 
 See: http://vivoweb.org/ontology/core#Dataset"""@en ;
              rdfs:label "Dataset"@en ;
@@ -1247,303 +1269,529 @@ See: http://xmlns.com/foaf/0.1/#term_Person"""@en ;
             <http://www.w3.org/2004/02/skos/core#altLabel> "Person"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0001
-plasma-o:PLASMA-O_C0001 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:comment """The application field is the typical application area in which an object is used/applied.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0001
+plsmo:PLSMO_C0001 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 """The application field is the typical application area in which an object is used/applied.
 In the context of plasma study, examples would be decontamination, etching, etc."""@en ;
-                        rdfs:label "Application Field"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Application Field"@en .
+                  rdfs:comment """The application field is the typical application area in which an object is used/applied.
+In the context of plasma study, examples would be decontamination, etching, etc."""@en ;
+                  rdfs:label "Application Field"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Application Field"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0002
-plasma-o:PLASMA-O_C0002 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0026 ;
-                        rdfs:comment "A set of settings and parameters of a device or instrument."@en ;
-                        rdfs:label "Configuration"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Configuration"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0002
+plsmo:PLSMO_C0002 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0026 ;
+                  obo:IAO_0000115 "A set of settings and parameters of a device or instrument."@en ;
+                  rdfs:comment "A set of settings and parameters of a device or instrument."@en ;
+                  rdfs:label "Configuration"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Configuration"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0003
-plasma-o:PLASMA-O_C0003 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0028 ;
-                        rdfs:label "Device"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Device"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0003
+plsmo:PLSMO_C0003 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0028 ;
+                  obo:IAO_0000115 "A device is an object that is invented or constructed to serve a specific function."@en ;
+                  rdfs:comment "A device is an object that is invented or constructed to serve a specific function."@en ;
+                  rdfs:label "Device"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Device"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0004
-plasma-o:PLASMA-O_C0004 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0003 ;
-                        owl:disjointWith plasma-o:PLASMA-O_C0005 ;
-                        rdfs:comment "Devices used to measure and identify physical quantities."@en ;
-                        rdfs:label "Diagnostic Device"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Diagnostic Device"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0004
+plsmo:PLSMO_C0004 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0003 ;
+                  owl:disjointWith plsmo:PLSMO_C0005 ;
+                  obo:IAO_0000115 "Devices used to measure and identify physical quantities."@en ;
+                  rdfs:comment "Devices used to measure and identify physical quantities."@en ;
+                  rdfs:label "Diagnostic Device"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Diagnostic Device"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0005
-plasma-o:PLASMA-O_C0005 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0003 ;
-                        owl:disjointWith plasma-o:PLASMA-O_C0010 ,
-                                         plasma-o:PLASMA-O_C0029 ;
-                        rdfs:comment "A device that generates a plasma."@en ;
-                        rdfs:label "Plasma Source"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Source"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0005
+plsmo:PLSMO_C0005 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0003 ;
+                  owl:disjointWith plsmo:PLSMO_C0010 ,
+                                   plsmo:PLSMO_C0029 ;
+                  obo:IAO_0000115 "A device that generates a plasma."@en ;
+                  rdfs:comment "A device that generates a plasma."@en ;
+                  rdfs:label "Plasma Source"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Source"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0006
-plasma-o:PLASMA-O_C0006 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:comment "Type of a device. E.g. camera, oscilloscope, voltmeter, etc."@en ;
-                        rdfs:label "Device Type"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Device Type"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0006
+plsmo:PLSMO_C0006 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Type of a device. E.g. camera, oscilloscope, voltmeter, etc."@en ;
+                  rdfs:comment "Type of a device. E.g. camera, oscilloscope, voltmeter, etc."@en ;
+                  rdfs:label "Device Type"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Device Type"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0007
-plasma-o:PLASMA-O_C0007 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:comment "Distinct operational modes or states of a plasma discharge. E.g. filamentary, alpha, gamma, diffuse, etc."@en ;
-                        rdfs:label "Discharge Regime"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Discharge Regime"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0007
+plsmo:PLSMO_C0007 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Distinct operational modes or states of a plasma discharge. E.g. filamentary, alpha, gamma, diffuse, etc."@en ;
+                  rdfs:comment "Distinct operational modes or states of a plasma discharge. E.g. filamentary, alpha, gamma, diffuse, etc."@en ;
+                  rdfs:label "Discharge Regime"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Discharge Regime"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0008
-plasma-o:PLASMA-O_C0008 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0027 ;
-                        rdfs:comment "A particular kind of matter or material with uniform properties. Inspired from a class of the same name in Physics-based simulation ontology (https://doi.org/10.1080/09544828.2019.1644301)"@en ;
-                        rdfs:label "Material Substance"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Material Substance"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0008
+plsmo:PLSMO_C0008 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0027 ;
+                  obo:IAO_0000115 "A particular kind of matter or material with uniform properties. Inspired from a class of the same name in Physics-based simulation ontology (https://doi.org/10.1080/09544828.2019.1644301)"@en ;
+                  rdfs:comment "A particular kind of matter or material with uniform properties. Inspired from a class of the same name in Physics-based simulation ontology (https://doi.org/10.1080/09544828.2019.1644301)"@en ;
+                  rdfs:label "Material Substance"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Material Substance"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0009
-plasma-o:PLASMA-O_C0009 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0008 ;
-                        rdfs:comment """A sample is a material substance subject to investigation.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0009
+plsmo:PLSMO_C0009 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0008 ;
+                  obo:IAO_0000115 """A sample is a material substance subject to investigation.
 
 E.g. A piece of copper metal, a petri dish of cultured cells, etc."""@en ;
-                        rdfs:label "Sample"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Sample"@en .
+                  rdfs:comment """A sample is a material substance subject to investigation.
+
+E.g. A piece of copper metal, a petri dish of cultured cells, etc."""@en ;
+                  rdfs:label "Sample"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Sample"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0010
-plasma-o:PLASMA-O_C0010 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0027 ;
-                        rdfs:comment "A target is an entity, which a plasma acts on."@en ;
-                        rdfs:label "Target"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Target"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0010
+plsmo:PLSMO_C0010 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0027 ;
+                  obo:IAO_0000115 "A target is an entity, which a plasma acts on."@en ;
+                  rdfs:comment "A target is an entity, which a plasma acts on."@en ;
+                  rdfs:label "Target"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Target"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0011
-plasma-o:PLASMA-O_C0011 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0008 ;
-                        rdfs:comment "Plasma medium. Gas, mixture of gases, or other substance, which is either (partially) ionized or otherwise activated by a source device."@en ;
-                        rdfs:label "Medium"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Medium"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0011
+plsmo:PLSMO_C0011 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0008 ;
+                  obo:IAO_0000115 "A medium such as gas, mixture of gases, or other substance, which is either (partially) ionized or otherwise activated by a plasma source."@en ;
+                  rdfs:comment "A medium such as gas, mixture of gases, or other substance, which is either (partially) ionized or otherwise activated by a plasma source."@en ;
+                  rdfs:label "Medium"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Medium"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0012
-plasma-o:PLASMA-O_C0012 rdf:type owl:Class ;
-                        rdfs:comment """Equivalent to obo:Technique.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0012
+plsmo:PLSMO_C0012 rdf:type owl:Class ;
+                  obo:IAO_0000115 """Equivalent to obo:Technique.
 
 A technique is a planned process used to accomplish a specific activity or task.
 
 See: http://purl.obolibrary.org/obo/ERO_0000007"""@en ;
-                        rdfs:label "Method"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Method"@en .
+                  rdfs:comment """Equivalent to obo:Technique.
+
+A technique is a planned process used to accomplish a specific activity or task.
+
+See: http://purl.obolibrary.org/obo/ERO_0000007"""@en ;
+                  rdfs:label "Method"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Method"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0013
-plasma-o:PLASMA-O_C0013 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0012 ;
-                        rdfs:comment """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0013
+plsmo:PLSMO_C0013 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0012 ;
+                  obo:IAO_0000115 """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
 Wikipedia: https://en.wikipedia.org/wiki/Plasma_diagnostics"""@en ;
-                        rdfs:label "Diagnostic Method"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Diagnostic Method"@en .
+                  rdfs:comment """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
+Wikipedia: https://en.wikipedia.org/wiki/Plasma_diagnostics"""@en ;
+                  rdfs:label "Diagnostic Method"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Diagnostic Method"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0014
-plasma-o:PLASMA-O_C0014 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0028 ;
-                        rdfs:comment "A part or component of a device that cannot function by itself e.g. electrodes, nozzle, cylindrical fragment, etc."@en ;
-                        rdfs:label "Part"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Part"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0014
+plsmo:PLSMO_C0014 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0028 ;
+                  obo:IAO_0000115 "A part or component of a device that cannot function by itself e.g. electrodes, nozzle, cylindrical fragment, etc."@en ;
+                  rdfs:comment "A part or component of a device that cannot function by itself e.g. electrodes, nozzle, cylindrical fragment, etc."@en ;
+                  rdfs:label "Part"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Part"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0015
-plasma-o:PLASMA-O_C0015 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:comment "E.g. increase of temperature, Stark broadening, ambipolar diffusion, drop of electron density, etc."@en ;
-                        rdfs:label "Physical Effect"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Physical Effect"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0015
+plsmo:PLSMO_C0015 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "E.g. increase of temperature, Stark broadening, ambipolar diffusion, drop of electron density, etc."@en ;
+                  rdfs:comment "E.g. increase of temperature, Stark broadening, ambipolar diffusion, drop of electron density, etc."@en ;
+                  rdfs:label "Physical Effect"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Physical Effect"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0016
-plasma-o:PLASMA-O_C0016 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0006 ;
-                        rdfs:comment "Type of plasma source. E.g. dielectric barrier discharge, atmospheric pressure plasma jet, capacitively coupled plasma source, etc."@en ;
-                        rdfs:label "Plasma Source Type"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Source Type"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0016
+plsmo:PLSMO_C0016 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0006 ;
+                  obo:IAO_0000115 "Type of plasma source. E.g. dielectric barrier discharge, atmospheric pressure plasma jet, capacitively coupled plasma source, etc."@en ;
+                  rdfs:comment "Type of plasma source. E.g. dielectric barrier discharge, atmospheric pressure plasma jet, capacitively coupled plasma source, etc."@en ;
+                  rdfs:label "Plasma Source Type"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Source Type"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0017
-plasma-o:PLASMA-O_C0017 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0034 ;
-                        rdfs:comment "A Qualitative Descriptor is a type of descriptor that describes an entity by expressing a quality, property, or feature in a non-numerical manner. It conveys information about the entity's characteristics, attributes, or nature using words, terms, or concepts rather than measurements or numbers. Example: thermal, virucidal, high-frequency, etc."@en ;
-                        rdfs:label "Qualitative Descriptor"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Qualitative Descriptor"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0017
+plsmo:PLSMO_C0017 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0034 ;
+                  obo:IAO_0000115 "A Qualitative Descriptor is a type of descriptor that describes an entity by expressing a quality, property, or feature in a non-numerical manner. It conveys information about the entity's characteristics, attributes, or nature using words, terms, or concepts rather than measurements or numbers. Example: thermal, virucidal, high-frequency, etc."@en ;
+                  rdfs:comment "A Qualitative Descriptor is a type of descriptor that describes an entity by expressing a quality, property, or feature in a non-numerical manner. It conveys information about the entity's characteristics, attributes, or nature using words, terms, or concepts rather than measurements or numbers. Example: thermal, virucidal, high-frequency, etc."@en ;
+                  rdfs:label "Qualitative Descriptor"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Qualitative Descriptor"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0018
-plasma-o:PLASMA-O_C0018 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0026 ;
-                        rdfs:comment "Physical properties."@en ;
-                        rdfs:label "Property"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Property"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0018
+plsmo:PLSMO_C0018 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0026 ;
+                  obo:IAO_0000115 "Description of a material entity in terms of its physical properties. E.g. glow discharge plasma has a property description that consists of electron density, gas temperature, etc."@en ;
+                  rdfs:comment "Description of a material entity in terms of its physical properties. E.g. glow discharge plasma has a property description that consists of electron density, gas temperature, etc."@en ;
+                  rdfs:label "Property"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Property"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0019
-plasma-o:PLASMA-O_C0019 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:label "Research Question"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Research Question"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0019
+plsmo:PLSMO_C0019 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  rdfs:label "Research Question"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Research Question"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0020
-plasma-o:PLASMA-O_C0020 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0017 ;
-                        rdfs:label "Research Topic"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Research Topic"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0020
+plsmo:PLSMO_C0020 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  rdfs:label "Research Topic"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Research Topic"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0021
-plasma-o:PLASMA-O_C0021 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0030 ;
-                        rdfs:comment """A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0021
+plsmo:PLSMO_C0021 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0030 ;
+                  obo:IAO_0000115 """A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance.
 
 EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ScientificExperiment"""@en ;
-                        rdfs:label "Scientific Experiment"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Scientific Experiment"@en .
+                  rdfs:comment """A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance.
+
+EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ScientificExperiment"""@en ;
+                  rdfs:label "Scientific Experiment"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Scientific Experiment"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0022
-plasma-o:PLASMA-O_C0022 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0021 ;
-                        rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ComputationalExperiment
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0022
+plsmo:PLSMO_C0022 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0021 ;
+                  obo:IAO_0000115 """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ComputationalExperiment
 
 A computational experiment is a scientific experiment which investigates cause-effect relations between known and unknown (target) variables by manipulating the computational (non-physical) domain adequate to the real-world domain."""@en ;
-                        rdfs:label "Computational Experiment"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Computational Experiment"@en .
+                  rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ComputationalExperiment
+
+A computational experiment is a scientific experiment which investigates cause-effect relations between known and unknown (target) variables by manipulating the computational (non-physical) domain adequate to the real-world domain."""@en ;
+                  rdfs:label "Computational Experiment"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Computational Experiment"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0023
-plasma-o:PLASMA-O_C0023 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0021 ;
-                        rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/PhysicalExperiment
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0023
+plsmo:PLSMO_C0023 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0021 ;
+                  obo:IAO_0000115 """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/PhysicalExperiment
 
 A physical experiment is a scientific experiment which investigates cause-effect relations between known and unknown variables by manipulating the real-world (physical) domain."""@en ;
-                        rdfs:label "Physical Experiment"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Physical Experiment"@en .
+                  rdfs:comment """EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/PhysicalExperiment
+
+A physical experiment is a scientific experiment which investigates cause-effect relations between known and unknown variables by manipulating the real-world (physical) domain."""@en ;
+                  rdfs:label "Physical Experiment"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Physical Experiment"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0024
-plasma-o:PLASMA-O_C0024 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0031 ;
-                        rdfs:comment "A collection of experiments with the focus on investigating plasma behaviours/properties, effects of a plasma on a certain target, etc."@en ;
-                        rdfs:label "Plasma Study"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Study"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0024
+plsmo:PLSMO_C0024 rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:unionOf ( [ owl:intersectionOf ( plsmo:PLSMO_C0031
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty plsmo:PLSMO_R0012 ;
+                                                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onClass plsmo:PLSMO_C0035
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                                      [ owl:intersectionOf ( plsmo:PLSMO_C0031
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty plsmo:PLSMO_R0054 ;
+                                                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onClass plsmo:PLSMO_C0029
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                                    )
+                                      ] ;
+                  rdfs:subClassOf plsmo:PLSMO_C0031 ;
+                  obo:IAO_0000115 "A collection of experiments with the focus on investigating plasma behaviors/properties, effects of a plasma on a certain target, its applications, etc."@en ;
+                  rdfs:comment "A collection of experiments with the focus on investigating plasma behaviors/properties, effects of a plasma on a certain target, its applications, etc."@en ;
+                  rdfs:label "Plasma Study"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Study"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0025
-plasma-o:PLASMA-O_C0025 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0026 ;
-                        rdfs:comment """A description of what a device is and what it can do.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0025
+plsmo:PLSMO_C0025 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0026 ;
+                  obo:IAO_0000115 """A description of what a device is and what it can do.
 
 E.g. a plasma source has operating power of [some value] Watt."""@en ;
-                        rdfs:label "Specification"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Specification"@en .
+                  rdfs:comment """A description of what a device is and what it can do.
+
+E.g. a plasma source has operating power of [some value] Watt."""@en ;
+                  rdfs:label "Specification"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Specification"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0026
-plasma-o:PLASMA-O_C0026 rdf:type owl:Class ;
-                        rdfs:comment "Description is an information about an object. For example, a device is an object that can have a specification, configuration, and/or properties. A description consists of both quantitative and qualitative descriptors. Such as physical quantities and some qualitative characteristics."@en ;
-                        rdfs:label "Description"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Description"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0026
+plsmo:PLSMO_C0026 rdf:type owl:Class ;
+                  obo:IAO_0000115 "Description is an information about an object. For example, a device is an object that can have a specification, configuration, and/or properties. A description consists of both quantitative and qualitative descriptors. Such as physical quantities and some qualitative characteristics."@en ;
+                  rdfs:comment "Description is an information about an object. For example, a device is an object that can have a specification, configuration, and/or properties. A description consists of both quantitative and qualitative descriptors. Such as physical quantities and some qualitative characteristics."@en ;
+                  rdfs:label "Description"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Description"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0027
-plasma-o:PLASMA-O_C0027 rdf:type owl:Class ;
-                        rdfs:comment """From Basic Formal Ontology: an entity that exists in full during the length of time of its existence, persists through this time while maintaining its identity and has no temporal parts. For example a heart, a human, a fly, a microarray.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0027
+plsmo:PLSMO_C0027 rdf:type owl:Class ;
+                  obo:IAO_0000115 """From Basic Formal Ontology: an entity that exists in full during the length of time of its existence, persists through this time while maintaining its identity and has no temporal parts. For example a heart, a human, a fly, a microarray.
 
 See: http://purl.obolibrary.org/obo/BFO_0000040"""@en ;
-                        rdfs:label "Material Entity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Material Entity"@en .
+                  rdfs:comment """From Basic Formal Ontology: an entity that exists in full during the length of time of its existence, persists through this time while maintaining its identity and has no temporal parts. For example a heart, a human, a fly, a microarray.
+
+See: http://purl.obolibrary.org/obo/BFO_0000040"""@en ;
+                  rdfs:label "Material Entity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Material Entity"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0028
-plasma-o:PLASMA-O_C0028 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0027 ;
-                        rdfs:comment "An Object is a real thing with a purpose, made of smaller parts that work together."@en ;
-                        rdfs:label "Object"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Object"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0028
+plsmo:PLSMO_C0028 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0027 ;
+                  obo:IAO_0000115 "An Object is a real thing with a purpose, made of smaller parts that work together."@en ;
+                  rdfs:comment "An Object is a real thing with a purpose, made of smaller parts that work together."@en ;
+                  rdfs:label "Object"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Object"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0029
-plasma-o:PLASMA-O_C0029 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0027 ;
-                        rdfs:comment """Plasma as an entity.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0029
+plsmo:PLSMO_C0029 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0027 ;
+                  obo:IAO_0000115 """Plasma as an entity.
 
 Plasma is an aggregate of neutral and charged particle species (electrons, atoms, molecules, and ions).
 
 Example: arc plasma, lightning, aurora, etc."""@en ;
-                        rdfs:label "Plasma"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma"@en .
+                  rdfs:comment """Plasma as an entity.
+
+Plasma is an aggregate of neutral and charged particle species (electrons, atoms, molecules, and ions).
+
+Example: arc plasma, lightning, aurora, etc."""@en ;
+                  rdfs:label "Plasma"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0030
-plasma-o:PLASMA-O_C0030 rdf:type owl:Class ;
-                        rdfs:comment "Any systematic investigation or inquiry aimed at increasing knowledge or understanding. This is a broad term that can include various research methods, including experiments, observational studies, surveys, etc."@en ;
-                        rdfs:label "Research Activity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Research Activity"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0030
+plsmo:PLSMO_C0030 rdf:type owl:Class ;
+                  obo:IAO_0000115 "Any systematic investigation or inquiry aimed at increasing knowledge or understanding. This is a broad term that can include various research methods, including experiments, observational studies, surveys, etc."@en ;
+                  rdfs:comment "Any systematic investigation or inquiry aimed at increasing knowledge or understanding. This is a broad term that can include various research methods, including experiments, observational studies, surveys, etc."@en ;
+                  rdfs:label "Research Activity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Research Activity"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0031
-plasma-o:PLASMA-O_C0031 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0030 ;
-                        rdfs:comment "A systematic investigation or inquiry aimed at increasing knowledge and understanding of a particular phenomenon, topic, or question. It involves formulating hypotheses, collecting and analyzing data, and drawing conclusions based on evidence. Scientific studies can employ various research methods, including experiments, observations, surveys, and simulations."@en ;
-                        rdfs:label "Scientific Study"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Scientific Study"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0031
+plsmo:PLSMO_C0031 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0030 ;
+                  obo:IAO_0000115 "A systematic investigation or inquiry aimed at increasing knowledge and understanding of a particular phenomenon, topic, or question. It involves formulating hypotheses, collecting and analyzing data, and drawing conclusions based on evidence. Scientific studies can employ various research methods, including experiments, observations, surveys, and simulations."@en ;
+                  rdfs:comment "A systematic investigation or inquiry aimed at increasing knowledge and understanding of a particular phenomenon, topic, or question. It involves formulating hypotheses, collecting and analyzing data, and drawing conclusions based on evidence. Scientific studies can employ various research methods, including experiments, observations, surveys, and simulations."@en ;
+                  rdfs:label "Scientific Study"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Scientific Study"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0032
-plasma-o:PLASMA-O_C0032 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0031 ;
-                        rdfs:comment "A specialized type of scientific study that relies heavily on computational methods and resources to conduct research. It involves developing and using computer models, simulations, algorithms, and data analysis techniques to investigate complex phenomena, test hypotheses, and generate new knowledge. Computational studies are particularly valuable for exploring systems that are difficult or impossible to study directly through experimentation, such as climate change, galaxy formation, or the human brain."@en ;
-                        rdfs:label "Computational Study"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Computational Study"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0032
+plsmo:PLSMO_C0032 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0031 ;
+                  obo:IAO_0000115 "A specialized type of scientific study that relies heavily on computational methods and resources to conduct research. It involves developing and using computer models, simulations, algorithms, and data analysis techniques to investigate complex phenomena, test hypotheses, and generate new knowledge. Computational studies are particularly valuable for exploring systems that are difficult or impossible to study directly through experimentation, such as climate change, galaxy formation, or the human brain."@en ;
+                  rdfs:comment "A specialized type of scientific study that relies heavily on computational methods and resources to conduct research. It involves developing and using computer models, simulations, algorithms, and data analysis techniques to investigate complex phenomena, test hypotheses, and generate new knowledge. Computational studies are particularly valuable for exploring systems that are difficult or impossible to study directly through experimentation, such as climate change, galaxy formation, or the human brain."@en ;
+                  rdfs:label "Computational Study"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Computational Study"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0033
-plasma-o:PLASMA-O_C0033 rdf:type owl:Class ;
-                        rdfs:comment """A Simulated Entity is an entity that represents Material Entity within a computer simulation. It does not have physical existence but is characterized by the information and properties defined within the simulation.
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0033
+plsmo:PLSMO_C0033 rdf:type owl:Class ;
+                  obo:IAO_0000115 """A Simulated Entity is an entity that represents Material Entity within a computer simulation. It does not have physical existence but is characterized by the information and properties defined within the simulation.
 
 Description when alligned with BFO:
 A Simulated Entity is a generically dependent continuant that represents an independent continuant within a computer simulation. It does not have physical existence but is characterized by the information and properties defined within the simulation."""@en ;
-                        rdfs:label "Simulated Entity"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Simulated Entity"@en .
+                  rdfs:comment """A Simulated Entity is an entity that represents Material Entity within a computer simulation. It does not have physical existence but is characterized by the information and properties defined within the simulation.
+
+Description when alligned with BFO:
+A Simulated Entity is a generically dependent continuant that represents an independent continuant within a computer simulation. It does not have physical existence but is characterized by the information and properties defined within the simulation."""@en ;
+                  rdfs:label "Simulated Entity"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Simulated Entity"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0034
-plasma-o:PLASMA-O_C0034 rdf:type owl:Class ;
-                        rdfs:comment "A Descriptor is an attribute or characteristic that provides information about an entity. It can be qualitative, expressing a quality or feature in a non-numerical manner (e.g. color, texture, behavior), or quantitative, expressing a measurable property with a numerical value and unit (e.g. frequency, mass, length)."@en ;
-                        rdfs:label "Descriptor"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Descriptor"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0034
+plsmo:PLSMO_C0034 rdf:type owl:Class ;
+                  obo:IAO_0000115 "A Descriptor is an attribute or characteristic that provides information about an entity. It can be qualitative, expressing a quality or feature in a non-numerical manner (e.g. color, texture, behavior), or quantitative, expressing a measurable property with a numerical value and unit (e.g. frequency, mass, length)."@en ;
+                  rdfs:comment "A Descriptor is an attribute or characteristic that provides information about an entity. It can be qualitative, expressing a quality or feature in a non-numerical manner (e.g. color, texture, behavior), or quantitative, expressing a measurable property with a numerical value and unit (e.g. frequency, mass, length)."@en ;
+                  rdfs:label "Descriptor"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Descriptor"@en .
 
 
-###  https://plasma-mds.org/ontology/plasma-o/PLASMA-O_C0035
-plasma-o:PLASMA-O_C0035 rdf:type owl:Class ;
-                        rdfs:subClassOf plasma-o:PLASMA-O_C0021 ;
-                        rdfs:comment "A scientific experiment involving plasma."@en ;
-                        rdfs:label "Plasma Experiment"@en ;
-                        <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Experiment"@en .
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0035
+plsmo:PLSMO_C0035 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0021 ;
+                  obo:IAO_0000115 "A scientific experiment that involves plasma as the object of investigation and/or its use in various kinds of applications, e.g. plasma medicine, decontamination, material processing, etc."@en ;
+                  rdfs:comment "A scientific experiment that involves plasma as the object of investigation and/or its use in various kinds of applications, e.g. plasma medicine, decontamination, material processing, etc."@en ;
+                  rdfs:label "Plasma Experiment"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Plasma Experiment"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0036
+plsmo:PLSMO_C0036 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Type of power delivery waveform, e.g. pulsed, direct current (DC), and alternating current (AC)."@en ;
+                  rdfs:comment "Type of power delivery waveform, e.g. pulsed, direct current (DC), and alternating current (AC)."@en ;
+                  rdfs:label "Waveform Type"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Waveform Type"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0037
+plsmo:PLSMO_C0037 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Temperature range that specifies the state of thermodynamic equilibrium fundamental to categorize a plasma, e.g. thermal and non-thermal."@en ;
+                  rdfs:comment "Temperature range that specifies the state of thermodynamic equilibrium fundamental to categorize a plasma, e.g. thermal and non-thermal."@en ;
+                  rdfs:label "Temperature Range"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Temperature Range"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0038
+plsmo:PLSMO_C0038 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Frequency range that specifies the pulse repetition frequency or the frequency of the waveform, e.g. low frequency (<300 kHz), high frequency (300 kHz to 300 MHz), and microwave (>300 MHz)."@en ;
+                  rdfs:comment "Frequency range that specifies the pulse repetition frequency or the frequency of the waveform, e.g. low frequency (<300 kHz), high frequency (300 kHz to 300 MHz), and microwave (>300 MHz)."@en ;
+                  rdfs:label "Frequency Range"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Frequency Range"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0039
+plsmo:PLSMO_C0039 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0017 ;
+                  obo:IAO_0000115 "Pressure range that specifies the gas pressure, e.g. low pressure (<≈ 10e3 Pa), medium pressure (10e3 to 10e5 Pa), atmospheric pressure (≈ 10e5 Pa), and high pressure (>≈ 10e5 Pa)."@en ;
+                  rdfs:comment "Pressure range that specifies the gas pressure, e.g. low pressure (<≈ 10e3 Pa), medium pressure (10e3 to 10e5 Pa), atmospheric pressure (≈ 10e5 Pa), and high pressure (>≈ 10e5 Pa)."@en ;
+                  rdfs:label "Pressure Range"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Pressure Range"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0001
+plsmo:PLSMO_I0001 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0036 ;
+                  obo:IAO_0000115 "Pulsed type waveform for power delivery (power supply)."@en ;
+                  rdfs:comment "Pulsed type waveform for power delivery (power supply)."@en ;
+                  rdfs:label "Pulsed"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Pulsed"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0002
+plsmo:PLSMO_I0002 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0036 ;
+                  obo:IAO_0000115 "Alternating current (AC) type waveform for power delivery (power supply)."@en ;
+                  rdfs:comment "Alternating current (AC) type waveform for power delivery (power supply)."@en ;
+                  rdfs:label "AC"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "AC"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0003
+plsmo:PLSMO_I0003 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0036 ;
+                  obo:IAO_0000115 "Direct current (DC) type waveform for power delivery (power supply)."@en ;
+                  rdfs:comment "Direct current (DC) type waveform for power delivery (power supply)."@en ;
+                  rdfs:label "DC"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "DC"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0004
+plsmo:PLSMO_I0004 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0038 ;
+                  obo:IAO_0000115 "Any frequency value below 300 kHz."@en ;
+                  rdfs:comment "Any frequency value below 300 kHz."@en ;
+                  rdfs:label "Low Frequency"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Low Frequency"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0005
+plsmo:PLSMO_I0005 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0038 ;
+                  obo:IAO_0000115 "Frequency value between 300 kHz and 300 MHz."@en ;
+                  rdfs:comment "Frequency value between 300 kHz and 300 MHz."@en ;
+                  rdfs:label "High Frequency"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "High Frequency"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0006
+plsmo:PLSMO_I0006 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0038 ;
+                  obo:IAO_0000115 "Any frequency value higher than 300 MHz."@en ;
+                  rdfs:comment "Any frequency value higher than 300 MHz."@en ;
+                  rdfs:label "Microwave Frequency"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Microwave Frequency"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0007
+plsmo:PLSMO_I0007 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0039 ;
+                  obo:IAO_0000115 "Any pressure value below around 10e3 Pa."@en ;
+                  rdfs:comment "Any pressure value below around 10e3 Pa."@en ;
+                  rdfs:label "Low Pressure"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Low Pressure"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0008
+plsmo:PLSMO_I0008 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0039 ;
+                  obo:IAO_0000115 "Any pressure value between 10e3 and 10e5 Pa."@en ;
+                  rdfs:comment "Any pressure value between 10e3 and 10e5 Pa."@en ;
+                  rdfs:label "Medium Pressure"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Medium Pressure"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0009
+plsmo:PLSMO_I0009 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0039 ;
+                  obo:IAO_0000115 "Pressure value of around 10e5 Pa."@en ;
+                  rdfs:comment "Pressure value of around 10e5 Pa."@en ;
+                  rdfs:label "Atmospheric Pressure"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Atmospheric Pressure"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0010
+plsmo:PLSMO_I0010 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0039 ;
+                  obo:IAO_0000115 "Any pressure value above around 10e5 Pa."@en ;
+                  rdfs:comment "Any pressure value above around 10e5 Pa."@en ;
+                  rdfs:label "High Pressure"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "High Pressure"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0011
+plsmo:PLSMO_I0011 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0037 ;
+                  rdfs:comment "Definition pending."@en ;
+                  rdfs:label "Thermal"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Thermal"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_I0012
+plsmo:PLSMO_I0012 rdf:type owl:NamedIndividual ,
+                           plsmo:PLSMO_C0037 ;
+                  rdfs:comment "Definition pending."@en ;
+                  rdfs:label "Non-Thermal"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Non-Thermal"@en .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
