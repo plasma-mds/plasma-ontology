@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a repository for the plasma ontology development. Plasma Ontology (`plasma-ontology.ttl`), also called Plasma-O, is a domain-specific ontology for low-temperature plasma science and technology. It reuses several classes and properties from other ontologies such as [VIVO](https://github.com/vivo-ontologies/vivo-ontology), [BIBO](https://www.dublincore.org/specifications/bibo/bibo/), and [FOAF](http://xmlns.com/foaf/spec/). The repository also consists of an example knowledge graph, called Plasma Knowledge Graph (`data/plasma-knowledge-graph.rdf`) or Plasma-KG, which was built using Plasma-O (version 0.5.0) and the [VIVO software platform](https://vivoweb.org/) (version 1.13). From the provided knowledge graph, users can query various instance data using SPARQL (example python scripts with SPARQL queries are also provided in the repository under the `scripts` directory).
+This is a repository for the plasma ontology development. Plasma Ontology (`plasma-ontology.ttl`), also called Plasma-O, is a domain-specific ontology for low-temperature plasma science and technology. It reuses several classes and properties from other ontologies such as [VIVO](https://github.com/vivo-ontologies/vivo-ontology), [BIBO](https://www.dublincore.org/specifications/bibo/bibo/), and [FOAF](http://xmlns.com/foaf/spec/). The repository also consists of an example knowledge graph, called Plasma Knowledge Graph (`data/plasma-knowledge-graph.rdf`) or Plasma-KG, which was built using Plasma-O (version 0.7.0) and the [VIVO software platform](https://vivoweb.org/) (version 1.15). From the provided knowledge graph, users can query various instance data using SPARQL (example python scripts with SPARQL queries are also provided in the repository under the `scripts` directory).
 
 ## Development
 
@@ -17,7 +17,7 @@ Example queries can be run using the provided python scripts (under the `scripts
 - `plasma-ontology$ python -m venv venv`—create a python virtual environment (note that Python 3.8.7 was used as the time the scripts were prepared)
 - `plasma-ontology$ source venv/bin/activate`—activate the virtual environment
 - `plasma-ontology$ pip install -r scripts/requirements.txt`—install the dependencies needed to run the scripts
-- `plasma-ontology$ python scripts/sparql_querry1.py`—run the script for the first SPARQL query example
+- `plasma-ontology$ python scripts/sparql_query1.py`—run the script for the first SPARQL query example
 
 ## Support
 
