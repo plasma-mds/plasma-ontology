@@ -10,7 +10,7 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix plsmo: <https://plasma-mds.org/ontology/plasma-o/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@base <https://plasma-mds.org/ontology/plasma-o> .
+@base <https://plasma-mds.org/ontology/plasma-o/> .
 
 <https://plasma-mds.org/ontology/plasma-o> rdf:type owl:Ontology ;
                                             owl:versionIRI <https://plasma-mds.org/ontology/plasma-o/0.7.0> ;
