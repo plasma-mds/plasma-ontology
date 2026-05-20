@@ -1528,7 +1528,7 @@ plsmo:PLSMO_C0014 rdf:type owl:Class ;
 ###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0015
 plsmo:PLSMO_C0015 rdf:type owl:Class ;
                   rdfs:subClassOf plsmo:PLSMO_C0017 ;
-                  obo:IAO_0000115 "E.g. increase of temperature, Stark broadening, ambipolar diffusion, drop of electron density, etc."@en ;
+                  obo:IAO_0000115 "A specific, observable phenomenon, transport process, or measurable change in the state variables of a plasma system. A Physical Effect arises as a consequence of fundamental interactions (e.g., collisional, radiative), the influence of external or internal electromagnetic fields, or thermodynamic gradients. E.g. increase of temperature, Stark broadening, ambipolar diffusion, drop of electron density, etc."@en ;
                   rdfs:label "Physical Effect"@en ;
                   <http://www.w3.org/2004/02/skos/core#altLabel> "Physical Effect"@en .
 
@@ -1554,7 +1554,8 @@ plsmo:PLSMO_C0018 rdf:type owl:Class ;
                   rdfs:subClassOf plsmo:PLSMO_C0026 ;
                   obo:IAO_0000115 "Description of a material entity in terms of its physical properties. E.g. glow discharge plasma has a property description that consists of electron density, gas temperature, etc."@en ;
                   rdfs:label "Property"@en ;
-                  <http://www.w3.org/2004/02/skos/core#altLabel> "Property"@en .
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Property"@en ;
+                  plsmo:PLSMO_AP0001 "The label of a property should be something qualitatively informative that directly describes the material entitiy. For example \"Non-LTE\", \"Alpha regime\", \"Partially magnetized\", \"Non-isothermal\", \"low pressure\", \"atmospheric pressure\"."@en .
 
 
 ###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0019
